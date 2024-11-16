@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq6tcfwgua5tp"]
+
+[ext_resource type="PackedScene" uid="uid://8j0unbar3qrs" path="res://assets/entities/player.tscn" id="1_1hmd4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_07b74"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dwtg6"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_32wob"]
+normal = Vector2(-1, 0)
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera" type="Camera2D" parent="."]
+offset = Vector2(0, -320)
+
+[node name="Player" parent="." instance=ExtResource("1_1hmd4")]
+position = Vector2(-3, 0)
+
+[node name="World Borders" type="StaticBody2D" parent="."]
+
+[node name="Bottom" type="CollisionShape2D" parent="World Borders"]
+shape = SubResource("WorldBoundaryShape2D_07b74")
+
+[node name="Left" type="CollisionShape2D" parent="World Borders"]
+position = Vector2(-184, -1)
+shape = SubResource("WorldBoundaryShape2D_dwtg6")
+
+[node name="Right" type="CollisionShape2D" parent="World Borders"]
+position = Vector2(181, 0)
+shape = SubResource("WorldBoundaryShape2D_32wob")
