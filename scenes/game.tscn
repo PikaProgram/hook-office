@@ -16,7 +16,6 @@ normal = Vector2(-1, 0)
 offset = Vector2(0, -320)
 
 [node name="Player" parent="." instance=ExtResource("1_1hmd4")]
-position = Vector2(-3, 0)
 
 [node name="World Borders" type="StaticBody2D" parent="."]
 
@@ -24,9 +23,9 @@ position = Vector2(-3, 0)
 shape = SubResource("WorldBoundaryShape2D_07b74")
 
 [node name="Left" type="CollisionShape2D" parent="World Borders"]
-position = Vector2(-184, -1)
+position = Vector2(-180, -1)
 shape = SubResource("WorldBoundaryShape2D_dwtg6")
 
 [node name="Right" type="CollisionShape2D" parent="World Borders"]
-position = Vector2(181, 0)
+position = Vector2(180, 0)
 shape = SubResource("WorldBoundaryShape2D_32wob")
