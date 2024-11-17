@@ -16,6 +16,8 @@ normal = Vector2(-1, 0)
 offset = Vector2(0, -320)
 
 [node name="Player" parent="." instance=ExtResource("1_1hmd4")]
+position = Vector2(0, -48)
+scale = Vector2(0.2, 0.2)
 
 [node name="World Borders" type="StaticBody2D" parent="."]
 
