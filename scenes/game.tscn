@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq6tcfwgua5tp"]
+[gd_scene load_steps=7 format=3 uid="uid://dq6tcfwgua5tp"]
 
 [ext_resource type="PackedScene" uid="uid://8j0unbar3qrs" path="res://assets/entities/player.tscn" id="1_1hmd4"]
+[ext_resource type="Texture2D" uid="uid://dwdg0ks8f85wa" path="res://assets/sprites/dino.png" id="2_ldnvr"]
+
+[sub_resource type="Texture2DRD" id="Texture2DRD_5l5gx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_07b74"]
 
@@ -12,8 +15,23 @@ normal = Vector2(-1, 0)
 
 [node name="Game" type="Node2D"]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -180.0
+offset_top = -640.0
+offset_right = 180.0
+texture = SubResource("Texture2DRD_5l5gx")
+
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(0, -320)
+
+[node name="Hook" type="Sprite2D" parent="."]
+position = Vector2(91, -114)
+scale = Vector2(0.047134, 0.027916)
+texture = ExtResource("2_ldnvr")
+
+[node name="Rope" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 2.0
 
 [node name="Player" parent="." instance=ExtResource("1_1hmd4")]
 position = Vector2(0, -48)
