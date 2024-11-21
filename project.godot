@@ -17,6 +17,11 @@ config/icon="res://icon.svg"
 config/size/viewport_width=360
 config/size/viewport_height=640
 
+[autoload]
+
+Globals="*res://scripts/globals.gd"
+PlayerProperties="*res://scripts/player_properties.gd"
+
 [display]
 
 window/size/viewport_width=360
