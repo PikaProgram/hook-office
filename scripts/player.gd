@@ -6,11 +6,7 @@ extends CharacterBody2D
 @onready var player: CharacterBody2D = $"."
 @onready var hook: CharacterBody2D = $"../Hook"
 
-# Constants
-const SPEED = 1000.0
-
 # Variables
-var player_is_hooked = false
 var target_position = Vector2()
 var last_position = Vector2()
 
@@ -33,10 +29,12 @@ func _physics_process(delta: float) -> void:
 		pass
 
 	if Globals.hook_state != 2:
+		if is_on_wall():
+			velocity *= Vector2(1, .6) # Apply friction to the player
 		if not is_on_floor():
 			# Apply gravity to the player
 			velocity += get_gravity() * delta
 		else:
-			velocity *= Vector2(.5, 1) # Apply friction to the player
+			velocity *= Vector2(.75, 1) # Apply friction to the player
 
 	move_and_slide()

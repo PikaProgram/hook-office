@@ -6,10 +6,21 @@ extends Node
 const LAYERS = {
   "BACKGROUND": 1,
   "ROOMS": 2,
-  "PLAYER": 3,
-  "HOOK": 4,
-  "UI": 5
+  "FLOORS": 3,
+  "PLAYER": 4,
+  "HOOK": 5,
+  "UI": 6
 }
+
+const FLOOR_DIRECTORY = "res://assets/entities/rooms/floors"
+const WALL_DIRECTORY = "res://assets/sprites/rooms/walls/"
+
+const SCROLL_SPEED = 100
+
+# Scrolling
+# false = Camera is not scrolling
+# true = Camera is scrolling
+var scroll_threshold = false
 
 # Game State
 # 0 = Menu state
