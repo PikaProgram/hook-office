@@ -3,9 +3,6 @@
 extends CharacterBody2D
 
 # Godot Imports
-@onready var left_border: CollisionShape2D = $"../World Borders/Left"
-@onready var right_border: CollisionShape2D = $"../World Borders/Right"
-@onready var player_collision_box: CollisionShape2D = $CollisionShape2D
 @onready var player: CharacterBody2D = $"."
 @onready var hook: CharacterBody2D = $"../Hook"
 
@@ -39,5 +36,7 @@ func _physics_process(delta: float) -> void:
 		if not is_on_floor():
 			# Apply gravity to the player
 			velocity += get_gravity() * delta
+		else:
+			velocity *= Vector2(.5, 1) # Apply friction to the player
 
 	move_and_slide()

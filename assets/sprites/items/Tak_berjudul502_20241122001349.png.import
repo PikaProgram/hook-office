@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwdg0ks8f85wa"
-path="res://.godot/imported/dino.png-2217b0835c1397df2287af65b01b5ff4.ctex"
+uid="uid://s8q8tmrtlls6"
+path="res://.godot/imported/Tak_berjudul502_20241122001349.png-48f23edfafbb230e841434411b59db8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/dino.png"
-dest_files=["res://.godot/imported/dino.png-2217b0835c1397df2287af65b01b5ff4.ctex"]
+source_file="res://assets/sprites/items/Tak_berjudul502_20241122001349.png"
+dest_files=["res://.godot/imported/Tak_berjudul502_20241122001349.png-48f23edfafbb230e841434411b59db8d.ctex"]
 
 [params]
 

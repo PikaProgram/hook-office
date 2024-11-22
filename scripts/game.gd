@@ -9,12 +9,16 @@ extends Node2D
 # Game state variables
 var player_is_hooked = false  # Tracks if player is currently hooked
 var click_position = Vector2()  # Stores mouse click position
-var angle_of_attack = 0.0  # Stores hook's angle of attack
+var rooms = []  # List of room nodes in the scene
 
 # Initialize game state when scene loads
 func _ready() -> void:
+	hook.visibility_layer = Globals.LAYERS["HOOK"]  # Set hook to hook layer
+	player.visibility_layer = Globals.LAYERS["PLAYER"]  # Set player to player layer
+	
 	# Set initial upward velocity for player jump
 	player.velocity = Vector2(0, PlayerProperties.jump_force)
+	
 	# Hide hook and rope initially
 	hook.visible = false
 	rope.visible = false 
@@ -28,7 +32,7 @@ func _physics_process(_delta: float) -> void:
 
 		# On left click, throw the hook
 		if Input.is_action_just_pressed("left_click"):
-			print("Hook Thrown")
+			print_debug("Hook Thrown")
 			Globals.hook_state = 1  # Change to throwing state
 			
 			# Make hook and rope visible
@@ -46,6 +50,7 @@ func _physics_process(_delta: float) -> void:
 		
 		# If hook hits something, change to hooked state
 		if hook.get_slide_collision_count() > 0:
+			print_debug("Hook Hit")
 			Globals.hook_state = 2
 
 	# State 2: Hook is attached, player is swinging
@@ -54,6 +59,7 @@ func _physics_process(_delta: float) -> void:
 		rope.set_point_position(1, player.position)
 		# If player hits something, reset hook state
 		if player.get_slide_collision_count() > 0:
+			print_debug("Player Hit")
 			Globals.hook_state = 0
 
 	# State 3: Reserved for future use

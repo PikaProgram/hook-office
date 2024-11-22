@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dq6tcfwgua5tp"]
+[gd_scene load_steps=11 format=3 uid="uid://dq6tcfwgua5tp"]
 
 [ext_resource type="PackedScene" uid="uid://8j0unbar3qrs" path="res://assets/entities/player.tscn" id="1_1hmd4"]
 [ext_resource type="PackedScene" uid="uid://wl1k4lem1gaq" path="res://assets/entities/hook.tscn" id="1_2jo02"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_5j1ls"]
 [ext_resource type="PackedScene" uid="uid://by4j52vndfaov" path="res://assets/entities/rope.tscn" id="4_kp7fi"]
+[ext_resource type="PackedScene" uid="uid://c32uafxbqffab" path="res://assets/entities/rooms/room_3.tscn" id="7_xhw1c"]
 
 [sub_resource type="Texture2DRD" id="Texture2DRD_5l5gx"]
 
@@ -41,6 +42,10 @@ scale = Vector2(0.2, 0.2)
 points = PackedVector2Array(0, 0, 0, 0)
 width = 1.0
 default_color = Color(0, 0, 0, 1)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("7_xhw1c")]
+position = Vector2(-2.86102e-06, -491)
+scale = Vector2(0.35, 0.35)
 
 [node name="World Borders" type="StaticBody2D" parent="."]
 
