@@ -8,3 +8,4 @@ extends Node
 # 2 = Hook is attached
 # 3 = Hook is retracted
 var hook_state = 0
+var game_started = false
