@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdf5mte1hfdxp"]
+
+[ext_resource type="Texture2D" uid="uid://ba6gn5rhstrh" path="res://assets/sprites/rooms/floors/floor_1.png" id="1_8m4a8"]
+
+[node name="floor_1" type="StaticBody2D"]
+
+[node name="Floor1" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("1_8m4a8")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(482, -422.25)
+scale = Vector2(1, 0.892857)
+polygon = PackedVector2Array(-1010, 441, -918, 441.56, -920, 581, -1012, 580)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-107, -20, -111, 90, 66, 90, 70, -26)

@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dq6tcfwgua5tp"]
+[gd_scene load_steps=9 format=3 uid="uid://dq6tcfwgua5tp"]
 
 [ext_resource type="PackedScene" uid="uid://8j0unbar3qrs" path="res://assets/entities/player.tscn" id="1_1hmd4"]
 [ext_resource type="PackedScene" uid="uid://wl1k4lem1gaq" path="res://assets/entities/hook.tscn" id="1_2jo02"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_5j1ls"]
 [ext_resource type="PackedScene" uid="uid://by4j52vndfaov" path="res://assets/entities/rope.tscn" id="4_kp7fi"]
-
-[sub_resource type="Texture2DRD" id="Texture2DRD_5l5gx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_07b74"]
 
@@ -21,26 +19,29 @@ normal = Vector2(0, 1)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_5j1ls")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -180.0
-offset_top = -640.0
-offset_right = 180.0
-texture = SubResource("Texture2DRD_5l5gx")
-
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(0, -320)
 
 [node name="Hook" parent="." instance=ExtResource("1_2jo02")]
+light_mask = 8
+visibility_layer = 8
+z_index = 4
 position = Vector2(77, -39)
 
-[node name="Player" parent="." instance=ExtResource("1_1hmd4")]
-position = Vector2(0, -48)
-scale = Vector2(0.2, 0.2)
-
 [node name="Rope" parent="." instance=ExtResource("4_kp7fi")]
+light_mask = 8
+visibility_layer = 8
+z_index = 4
 points = PackedVector2Array(0, 0, 0, 0)
 width = 1.0
 default_color = Color(0, 0, 0, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_1hmd4")]
+light_mask = 4
+visibility_layer = 4
+z_index = 3
+position = Vector2(0, -48)
+scale = Vector2(0.2, 0.2)
 
 [node name="World Borders" type="StaticBody2D" parent="."]
 
@@ -48,13 +49,14 @@ default_color = Color(0, 0, 0, 1)
 shape = SubResource("WorldBoundaryShape2D_07b74")
 
 [node name="Left" type="CollisionShape2D" parent="World Borders"]
-position = Vector2(-180, -1)
+position = Vector2(-156, -1)
 shape = SubResource("WorldBoundaryShape2D_dwtg6")
 
 [node name="Right" type="CollisionShape2D" parent="World Borders"]
-position = Vector2(180, 0)
+position = Vector2(156, 0)
 shape = SubResource("WorldBoundaryShape2D_32wob")
 
 [node name="Top" type="CollisionShape2D" parent="World Borders"]
 position = Vector2(0, -640)
 shape = SubResource("WorldBoundaryShape2D_akqdq")
+disabled = true
