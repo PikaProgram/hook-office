@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hook Office"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/start_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 config/size/viewport_width=360
@@ -21,6 +21,7 @@ config/size/viewport_height=640
 
 Globals="*res://scripts/globals.gd"
 PlayerProperties="*res://scripts/player_properties.gd"
+TransitionScreen="*res://scenes/transition_screen.tscn"
 
 [display]
 
