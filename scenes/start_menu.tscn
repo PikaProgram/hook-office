@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8jslyh45dria"]
+[gd_scene load_steps=10 format=3 uid="uid://gphp3y2prxpx"]
 
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_ujcox"]
-[ext_resource type="Texture2D" path="res://assets/sprites/splash.png" id="2_qnryk"]
-[ext_resource type="AudioStream" path="res://assets/audio/music/start_menu.wav" id="5_81nif"]
-[ext_resource type="FontFile" path="res://assets/fonts/gemstone.ttf" id="6_702ty"]
+[ext_resource type="Texture2D" uid="uid://dwvhrnpar8lda" path="res://assets/sprites/splash.png" id="2_qnryk"]
+[ext_resource type="AudioStream" uid="uid://n16boyu577lu" path="res://assets/audio/music/start_menu.wav" id="5_81nif"]
+[ext_resource type="FontFile" uid="uid://qbq5delt70mc" path="res://assets/fonts/gemstone.ttf" id="6_702ty"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nrh18"]
 
