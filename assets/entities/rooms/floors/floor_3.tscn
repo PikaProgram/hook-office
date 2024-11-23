@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c32uafxbqffab"]
+
+[ext_resource type="Texture2D" uid="uid://cmjqvg760gsmf" path="res://assets/sprites/rooms/floors/floor_3.png" id="1_wnvkq"]
+
+[node name="floor_3" type="StaticBody2D"]
+
+[node name="Floor3" type="Sprite2D" parent="."]
+texture = ExtResource("1_wnvkq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(468.16, -471.3)
+polygon = PackedVector2Array(-1002.2, 564.5, -645.16, 546.3, -642.16, 452.3, -1001.16, 444.3)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
+position = Vector2(-467.4, -485.5)
+polygon = PackedVector2Array(885.4, 574.5, 885.4, 478.5, 998.4, 477.5, 995, 576)

@@ -11,7 +11,6 @@ func _ready() -> void:
 	slide_on_ceiling = false
 	visible = false
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
 	if Globals.hook_state == 0:
@@ -23,9 +22,8 @@ func _physics_process(_delta: float) -> void:
 	
 	elif Globals.hook_state == 2:
 		velocity = Vector2.ZERO
-		
 	
 	elif Globals.hook_state == 3:
-		velocity = velocity.rotated(deg_to_rad(180))
+		velocity = (player.position - position).normalized() * HOOK_SPEED * 3
 
 	move_and_slide()
