@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://c8jslyh45dria"]
+
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_ujcox"]
+[ext_resource type="Texture2D" path="res://assets/sprites/splash.png" id="2_qnryk"]
+[ext_resource type="AudioStream" path="res://assets/audio/music/start_menu.wav" id="5_81nif"]
+[ext_resource type="FontFile" path="res://assets/fonts/gemstone.ttf" id="6_702ty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nrh18"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xgonn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vnf15"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_erxhq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vjxnv"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 360.0
+offset_bottom = 640.0
+script = ExtResource("1_ujcox")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+offset_right = 360.0
+offset_bottom = 640.0
+texture = ExtResource("2_qnryk")
+expand_mode = 1
+
+[node name="StartAreaButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartMenuBGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_81nif")
+autoplay = true
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -76.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 54.0
+grow_horizontal = 0
+theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.866667, 0.866667, 0.866667, 1)
+theme_override_colors/font_outline_color = Color(0.866667, 0.866667, 0.866667, 1)
+theme_override_fonts/font = ExtResource("6_702ty")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nrh18")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_nrh18")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_nrh18")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_xgonn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vnf15")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_erxhq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjxnv")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_nrh18")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nrh18")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nrh18")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nrh18")
+text = "Exit"
+
+[connection signal="pressed" from="StartAreaButton" to="." method="_on_start_area_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
