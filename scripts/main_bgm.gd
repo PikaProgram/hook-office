@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
 
 const FADE_TIME: float = 0.5 # In second
-const BASE_VOLUME: float = -10.0
+const BASE_VOLUME: float = 0
 const DIM_VOLUME: float = 10.0
 
 # Called when the node enters the scene tree for the first time.

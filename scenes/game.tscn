@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dq6tcfwgua5tp"]
+[gd_scene load_steps=19 format=3 uid="uid://dq6tcfwgua5tp"]
 
 [ext_resource type="PackedScene" uid="uid://8j0unbar3qrs" path="res://assets/entities/player.tscn" id="1_1hmd4"]
 [ext_resource type="PackedScene" uid="uid://wl1k4lem1gaq" path="res://assets/entities/hook.tscn" id="1_2jo02"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://7nkennk2fywj" path="res://assets/sprites/ui/score_board.png" id="6_rpbhd"]
 [ext_resource type="PackedScene" uid="uid://c3o5r8wg6a8y7" path="res://scenes/pause_menu.tscn" id="7_e2jga"]
 [ext_resource type="PackedScene" uid="uid://cjxe8r15v3ler" path="res://scenes/settings_overlay.tscn" id="8_4lict"]
-[ext_resource type="AudioStream" uid="uid://gur7pfr5arj2" path="res://assets/audio/music/main_theme.mp3" id="8_b50cp"]
 [ext_resource type="Script" path="res://scripts/main_bgm.gd" id="9_5m0jl"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_07b74"]
@@ -151,7 +150,6 @@ offset_bottom = 0.0
 
 [node name="MainBGM" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("8_b50cp")
 bus = &"Music"
 script = ExtResource("9_5m0jl")
 
