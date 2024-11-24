@@ -1,6 +1,8 @@
 extends Control
 
 @onready var pause_menu: Control = $"../PauseMenu"
+@onready var music_slider: HSlider = $VolumePanel/VerticalContainer/MusicControl/MusicSlider
+@onready var sfx_slider: HSlider = $VolumePanel/VerticalContainer/SFXControl/SFXSlider
 @onready var MUSIC_BUS_ID = AudioServer.get_bus_index("Music")
 @onready var SFX_BUS_ID = AudioServer.get_bus_index("SFX")
 
@@ -9,6 +11,7 @@ func _on_cancel_area_pressed() -> void:
   print_debug("Cancel area pressed")
   visible = false
   pause_menu.visible = true
+  SaveData.write({ "volume": { "music": music_slider.value, "sfx": sfx_slider.value } })
 
 func _on_sfx_slider_value_changed(value: float) -> void:
   AudioServer.set_bus_volume_db(SFX_BUS_ID, linear_to_db(value))

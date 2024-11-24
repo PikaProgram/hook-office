@@ -38,3 +38,4 @@ var hook_state = 0
 var game_started = false
 
 var dim_main_theme = false
+var save_data = str_to_var(var_to_str(SaveData.read()))

@@ -22,7 +22,6 @@ func _ready() -> void:
   print_debug(camera.position)
   print_debug(camera.offset)
 
-
   var floor_directory = DirAccess.open(Globals.FLOOR_DIRECTORY) # Open the floor directory
 
   if floor_directory:

@@ -4,4 +4,5 @@
 
 [node name="UninterruptibleSFX" type="AudioStreamPlayer"]
 process_mode = 3
+bus = &"SFX"
 script = ExtResource("1_ex2ac")

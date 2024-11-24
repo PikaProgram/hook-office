@@ -19,11 +19,11 @@ config/size/viewport_height=640
 
 [autoload]
 
+SaveData="*res://scripts/save_data.gd"
 Globals="*res://scripts/globals.gd"
 PlayerProperties="*res://scripts/player_properties.gd"
 TransitionScreen="*res://scenes/transition_screen.tscn"
 UninterruptibleSFX="*res://scenes/uninterruptible_sfx.tscn"
-SaveData="*res://scripts/save_data.gd"
 
 [display]
 
