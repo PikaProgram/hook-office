@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://gphp3y2prxpx"]
+[gd_scene load_steps=11 format=3 uid="uid://gphp3y2prxpx"]
 
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_ujcox"]
-[ext_resource type="Texture2D" uid="uid://dwvhrnpar8lda" path="res://assets/sprites/splash.png" id="2_qnryk"]
-[ext_resource type="AudioStream" uid="uid://n16boyu577lu" path="res://assets/audio/music/start_menu.wav" id="5_81nif"]
+[ext_resource type="Texture2D" uid="uid://dwvhrnpar8lda" path="res://assets/sprites/ui/splash.png" id="2_qnryk"]
+[ext_resource type="AudioStream" uid="uid://n16boyu577lu" path="res://assets/audio/music/start_menu_theme.wav" id="5_81nif"]
+[ext_resource type="AudioStream" uid="uid://blowt12eb5d1d" path="res://assets/audio/sfx/button_press.wav" id="5_qmuhn"]
 [ext_resource type="FontFile" uid="uid://qbq5delt70mc" path="res://assets/fonts/gemstone.ttf" id="6_702ty"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nrh18"]
@@ -38,10 +39,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StartMenuBGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_81nif")
-autoplay = true
-
 [node name="ExitButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 1
@@ -72,6 +69,14 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_nrh18")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nrh18")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nrh18")
 text = "Exit"
+
+[node name="StartMenuBGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_81nif")
+bus = &"Music"
+
+[node name="ButtonClickBGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qmuhn")
+volume_db = 10.0
 
 [connection signal="pressed" from="StartAreaButton" to="." method="_on_start_area_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

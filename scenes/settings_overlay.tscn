@@ -1,0 +1,131 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjxe8r15v3ler"]
+
+[ext_resource type="FontFile" uid="uid://qbq5delt70mc" path="res://assets/fonts/gemstone.ttf" id="1_bviob"]
+[ext_resource type="Script" path="res://scripts/settings_overlay.gd" id="1_pcedd"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0lxqx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rqk66"]
+texture = SubResource("CanvasTexture_0lxqx")
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="SettingsOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 360.0
+offset_bottom = 640.0
+script = ExtResource("1_pcedd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="CancelArea" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VolumePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -70.0
+offset_right = 140.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rqk66")
+
+[node name="VerticalContainer" type="VBoxContainer" parent="VolumePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MusicControl" type="Control" parent="VolumePanel/VerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MusicLabel" type="Label" parent="VolumePanel/VerticalContainer/MusicControl"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -15.0
+offset_right = 82.0
+offset_bottom = 15.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_bviob")
+theme_override_font_sizes/font_size = 30
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="VolumePanel/VerticalContainer/MusicControl"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -8.0
+offset_right = -15.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="SFXControl" type="Control" parent="VolumePanel/VerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SFXLabel" type="Label" parent="VolumePanel/VerticalContainer/SFXControl"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -15.0
+offset_right = 55.0
+offset_bottom = 15.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_bviob")
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="VolumePanel/VerticalContainer/SFXControl"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -8.0
+offset_right = -15.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[connection signal="pressed" from="CancelArea" to="." method="_on_cancel_area_pressed"]
+[connection signal="value_changed" from="VolumePanel/VerticalContainer/MusicControl/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="VolumePanel/VerticalContainer/SFXControl/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

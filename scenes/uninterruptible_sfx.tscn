@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0hx73rlxrsct"]
+
+[ext_resource type="Script" path="res://scripts/uninterruptible_sfx.gd" id="1_ex2ac"]
+
+[node name="UninterruptibleSFX" type="AudioStreamPlayer"]
+process_mode = 3
+script = ExtResource("1_ex2ac")
