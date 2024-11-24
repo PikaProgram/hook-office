@@ -14,6 +14,7 @@ const LAYERS = {
 
 const FLOOR_DIRECTORY = "res://assets/entities/rooms/floors"
 const WALL_DIRECTORY = "res://assets/sprites/rooms/walls/"
+const ITEM_DIRECTORY = "res://assets/sprites/items/"
 
 const SCROLL_SPEED = 100
 
@@ -35,4 +36,7 @@ var game_state = 0
 # 2 = Hook is attached
 # 3 = Hook is retracted
 var hook_state = 0
+
 var game_started = false
+
+var room_count = 7

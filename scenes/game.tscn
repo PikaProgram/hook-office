@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dq6tcfwgua5tp"]
+[gd_scene load_steps=10 format=3 uid="uid://dq6tcfwgua5tp"]
 
 [ext_resource type="PackedScene" uid="uid://8j0unbar3qrs" path="res://assets/entities/player.tscn" id="1_1hmd4"]
 [ext_resource type="PackedScene" uid="uid://wl1k4lem1gaq" path="res://assets/entities/hook.tscn" id="1_2jo02"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_5j1ls"]
 [ext_resource type="PackedScene" uid="uid://by4j52vndfaov" path="res://assets/entities/rope.tscn" id="4_kp7fi"]
+[ext_resource type="Script" path="res://scripts/generators/rooms.gd" id="5_28vne"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_07b74"]
 
@@ -60,3 +61,6 @@ shape = SubResource("WorldBoundaryShape2D_32wob")
 position = Vector2(0, -640)
 shape = SubResource("WorldBoundaryShape2D_akqdq")
 disabled = true
+
+[node name="RoomSpawner" type="Node2D" parent="."]
+script = ExtResource("5_28vne")
