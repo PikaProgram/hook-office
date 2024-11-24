@@ -66,6 +66,8 @@ func write(new_data: Dictionary):
   # Stringify and write into file
   var stringified = JSON.stringify(dict)
   write_to_file(stringified)
+
+  # Update save_data at Globals
   Globals.save_data = str_to_var(var_to_str(read()))
 
 ## Write config into DATA_PATH

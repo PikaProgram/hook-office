@@ -6,6 +6,9 @@ extends Control
 @onready var MUSIC_BUS_ID = AudioServer.get_bus_index("Music")
 @onready var SFX_BUS_ID = AudioServer.get_bus_index("SFX")
 
+func _ready() -> void:
+  music_slider.value = Globals.save_data.volume.music
+  sfx_slider.value = Globals.save_data.volume.sfx
 
 func _on_cancel_area_pressed() -> void:
   print_debug("Cancel area pressed")
