@@ -68,7 +68,7 @@ func generate_room(floor_array, wall_array, index: int) -> Array:
 	var floor_index = rng.randi_range(0, floor_array.size() - 1)
 	var wall_index = rng.randi_range(0, wall_array.size() - 1)
 
-	var floor_scene = floor_array[floor_index].instantiate()
+	var floor_scene: StaticBody2D = floor_array[floor_index].instantiate()
 	var wall_texture = wall_array[wall_index]
 	var wall = Sprite2D.new()
 

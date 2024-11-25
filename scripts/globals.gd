@@ -8,13 +8,14 @@ const LAYERS = {
   "ROOMS": 2,
   "FLOORS": 3,
   "PLAYER": 4,
-  "HOOK": 5,
-  "UI": 6
+  "PROJECTILE": 5,
+  "HOOK": 6,
+  "UI": 7
 }
 
 const FLOOR_DIRECTORY = "res://assets/entities/rooms/floors"
 const WALL_DIRECTORY = "res://assets/sprites/rooms/walls/"
-const ITEM_DIRECTORY = "res://assets/sprites/items/"
+const PROJECTILE_DIRECTORY = "res://assets/entities/projectiles/"
 
 const SCROLL_SPEED = 100
 
@@ -37,6 +38,6 @@ var game_state = 0
 # 3 = Hook is retracted
 var hook_state = 0
 
-var game_started = false
-
+# Room Count
+# The number of rooms to initially generate
 var room_count = 7

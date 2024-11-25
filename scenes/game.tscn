@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dq6tcfwgua5tp"]
+[gd_scene load_steps=11 format=3 uid="uid://dq6tcfwgua5tp"]
 
 [ext_resource type="PackedScene" uid="uid://8j0unbar3qrs" path="res://assets/entities/player.tscn" id="1_1hmd4"]
 [ext_resource type="PackedScene" uid="uid://wl1k4lem1gaq" path="res://assets/entities/hook.tscn" id="1_2jo02"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_5j1ls"]
 [ext_resource type="PackedScene" uid="uid://by4j52vndfaov" path="res://assets/entities/rope.tscn" id="4_kp7fi"]
 [ext_resource type="Script" path="res://scripts/generators/rooms.gd" id="5_28vne"]
+[ext_resource type="Script" path="res://scripts/generators/projectiles.gd" id="6_ywuar"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_07b74"]
 
@@ -48,6 +49,7 @@ scale = Vector2(0.2, 0.2)
 
 [node name="Bottom" type="CollisionShape2D" parent="World Borders"]
 shape = SubResource("WorldBoundaryShape2D_07b74")
+disabled = true
 
 [node name="Left" type="CollisionShape2D" parent="World Borders"]
 position = Vector2(-156, -1)
@@ -64,3 +66,6 @@ disabled = true
 
 [node name="RoomSpawner" type="Node2D" parent="."]
 script = ExtResource("5_28vne")
+
+[node name="ProjectileSpawner" type="Node2D" parent="."]
+script = ExtResource("6_ywuar")
