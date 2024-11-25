@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dq6tcfwgua5tp"]
+[gd_scene load_steps=21 format=3 uid="uid://dq6tcfwgua5tp"]
 
 [ext_resource type="PackedScene" uid="uid://8j0unbar3qrs" path="res://assets/entities/player.tscn" id="1_1hmd4"]
 [ext_resource type="PackedScene" uid="uid://wl1k4lem1gaq" path="res://assets/entities/hook.tscn" id="1_2jo02"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c3o5r8wg6a8y7" path="res://scenes/pause_menu.tscn" id="7_e2jga"]
 [ext_resource type="PackedScene" uid="uid://cjxe8r15v3ler" path="res://scenes/settings_overlay.tscn" id="8_4lict"]
 [ext_resource type="Script" path="res://scripts/main_bgm.gd" id="9_5m0jl"]
+[ext_resource type="Script" path="res://scripts/generators/projectiles.gd" id="10_1bc6h"]
+[ext_resource type="Script" path="res://scripts/generators/rooms.gd" id="11_e8qwg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_07b74"]
 
@@ -153,6 +155,12 @@ offset_bottom = 0.0
 process_mode = 3
 bus = &"Music"
 script = ExtResource("9_5m0jl")
+
+[node name="ProjectileSpawner" type="Node2D" parent="."]
+script = ExtResource("10_1bc6h")
+
+[node name="RoomSpawner" type="Node2D" parent="."]
+script = ExtResource("11_e8qwg")
 
 [connection signal="pressed" from="TopControl/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="visibility_changed" from="PauseMenu" to="PauseMenu" method="_on_visibility_changed"]

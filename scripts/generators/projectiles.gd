@@ -5,7 +5,6 @@ extends Node2D
 @onready var player: CharacterBody2D = $"../Player"
 @onready var room_spawner: Node2D = $"../RoomSpawner"
 
-
 const spawn_speed: float = 1.0 / 3.0
 var spawns_quantity: float = 0.0
 
