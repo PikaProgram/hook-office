@@ -5,17 +5,33 @@ extends CharacterBody2D
 # Godot Imports
 @onready var player: CharacterBody2D = $"."
 @onready var hook: CharacterBody2D = $"../Hook"
+@onready var projectile_spawner: Node2D = $"../ProjectileSpawner"
 
 # Variables
 var target_position = Vector2()
 var last_position = Vector2()
-
+var immortality_time = PlayerProperties.immortality_time
 # Called when the node is added to the scene.
 func _ready() -> void:
 	pass
 
 # Called every physics frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if PlayerProperties.immortality_state:
+		var projectiles = projectile_spawner.get_children()
+		if immortality_time <= 0:
+			print_debug("ImmortalityOver")
+			print_debug(immortality_time)
+			PlayerProperties.immortality_state = false
+			immortality_time += PlayerProperties.immortality_time
+			for projectile in projectiles:
+				player.remove_collision_exception_with(projectile)
+		else:
+			print_debug("ImmortalityActive")
+			for projectile in projectiles:
+				player.add_collision_exception_with(projectile)
+			immortality_time -= delta
+
 	if Globals.hook_state == 0:
 		pass
 

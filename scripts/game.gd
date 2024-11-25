@@ -55,7 +55,8 @@ func _physics_process(delta: float) -> void:
 			if projectile.get_colliding_bodies().size() > 0:
 				for body in projectile.get_colliding_bodies():
 					if body == player:
-						print("Player hit by projectile")	
+						print_debug("PlayerProjectileHit")
+						PlayerProperties.immortality_state = true
 
 		# State 0: Hook is ready to be thrown
 		if Globals.hook_state == 0:
