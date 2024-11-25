@@ -71,7 +71,6 @@ scale = Vector2(0.2, 0.2)
 
 [node name="Bottom" type="CollisionShape2D" parent="World Borders"]
 shape = SubResource("WorldBoundaryShape2D_07b74")
-disabled = true
 
 [node name="Left" type="CollisionShape2D" parent="World Borders"]
 position = Vector2(-156, -1)
@@ -162,5 +161,5 @@ script = ExtResource("10_1bc6h")
 [node name="RoomSpawner" type="Node2D" parent="."]
 script = ExtResource("11_e8qwg")
 
-[connection signal="pressed" from="TopControl/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="TopControl/PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
 [connection signal="visibility_changed" from="PauseMenu" to="PauseMenu" method="_on_visibility_changed"]

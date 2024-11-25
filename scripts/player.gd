@@ -23,8 +23,18 @@ func _physics_process(delta: float) -> void:
 		pass
 
 	elif Globals.hook_state == 2:
-		velocity = (hook.position - position).normalized() * PlayerProperties.speed # Set the player velocity to the direction of the hook
-
+		if Input.is_anything_pressed():
+			if Input.is_action_just_pressed("dash_up"):
+				velocity = Vector2(0, -PlayerProperties.speed)
+				Globals.hook_state = 3
+			elif Input.is_action_just_pressed("dash_left"):
+				velocity = Vector2(-PlayerProperties.speed, 0)
+				Globals.hook_state = 3
+			elif Input.is_action_just_pressed("dash_right"):
+				velocity = Vector2(PlayerProperties.speed, 0)
+				Globals.hook_state = 3
+		else:
+			velocity = (hook.position - position).normalized() * PlayerProperties.speed # Set the player velocity to the direction of the hook
 	elif Globals.hook_state == 3:
 		pass
 

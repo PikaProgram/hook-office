@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var camera: Camera2D = $"../Camera"
+@onready var projectile_spawner: Node2D = $"../ProjectileSpawner"
 
 var rng = RandomNumberGenerator.new()
 
@@ -85,5 +86,11 @@ func generate_room(floor_array, wall_array, index: int) -> Array:
 	wall.scale *= .35
 
 	wall.texture = wall_texture
+
+	var projectiles = projectile_spawner.get_children()
+
+	for projectile in projectiles:
+		if projectile.get_class() == "RigidBody2D":
+			projectile.add_collision_exception_with(floor_scene)
 
 	return([floor_scene, wall])

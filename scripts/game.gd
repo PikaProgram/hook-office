@@ -10,6 +10,7 @@ extends Node2D
 @onready var top_control: Control = $TopControl
 @onready var pause_menu: Control = $PauseMenu
 @onready var settings_overlay: Control = $SettingsOverlay
+@onready var projectile_spawner: Node2D = $ProjectileSpawner
 
 var rooms: Array = []
 var room_size = 8
@@ -34,8 +35,7 @@ func _physics_process(delta: float) -> void:
 			top_control.visible = true
 			Globals.game_state = 1 # Change to game state
 			player.visible = true
-			player.position = Vector2(0, 200)
-			player.velocity = Vector2(0, PlayerProperties.jump_force)
+			player.position = Vector2(0, -100)
 
 	elif Globals.game_state == 1:
 		rope.set_point_position(0, hook.position)
@@ -48,26 +48,31 @@ func _physics_process(delta: float) -> void:
 		else:
 			var scroll_distance = min(Globals.SCROLL_SPEED * (floor(camera.offset.y / 10000) + 1), -Globals.SCROLL_SPEED) * delta
 			camera.offset.y += scroll_distance
-			floor_border.position.y += scroll_distance
 			top_control.position.y += scroll_distance
 
+		# Check player collision with projectiles
+		for projectile: RigidBody2D in projectile_spawner.get_children():
+			if projectile.get_colliding_bodies().size() > 0:
+				for body in projectile.get_colliding_bodies():
+					if body == player:
+						print("Player hit by projectile")	
 
 		# State 0: Hook is ready to be thrown
 		if Globals.hook_state == 0:
 			hook.visible = false
 			rope.visible = false
 
-		# On left click, throw the hook
-		if Input.is_action_just_pressed("left_click") and get_global_mouse_position().y > top_control.position.y + top_control.size.y:
-			print_debug("HookThrown")
-			Globals.hook_state = 1 # Change to throwing state
+			# On left click, throw the hook
+			if Input.is_action_just_pressed("left_click") and get_global_mouse_position().y > top_control.position.y + top_control.size.y:
+				print_debug("HookThrown")
+				Globals.hook_state = 1 # Change to throwing state
 
-			# Make hook and rope visible
-			hook.visible = true
-			rope.visible = true
+				# Make hook and rope visible
+				hook.visible = true
+				rope.visible = true
 
-			# Start hook at player's position
-			hook.position = player.position
+				# Start hook at player's position
+				hook.position = player.position
 
 		# State 1: Hook is flying through air
 		elif Globals.hook_state == 1:
@@ -83,18 +88,15 @@ func _physics_process(delta: float) -> void:
 		# State 2: Hook is attached, player is swinging
 		elif Globals.hook_state == 2:
 			# If player hits something, reset hook state
-			if player.get_slide_collision_count() > 0 and (!player.is_on_floor() or !player.is_on_ceiling_only()):
-				print_debug("PlayerHit")
-				Globals.hook_state = 0
-
+			if player.get_slide_collision_count() > 0 and (player.position.distance_to(hook.position) < 50 or player.velocity.abs() > Vector2.ONE):
+					print_debug("PlayerHit")
+					Globals.hook_state = 0
+	
 		# State 3: Hook bounced off
 		elif Globals.hook_state == 3:
 			if hook.position.distance_to(player.position) < 50:
 				print_debug("HookRetracted")
 				Globals.hook_state = 0
-			# if hook.get_last_slide_collision():
-			# 	if hook.get_last_slide_collision().get_collider().name == player.name:
-			# Globals.hook_state = 0
 
 	elif Globals.game_state == 2:
 		# Game over state

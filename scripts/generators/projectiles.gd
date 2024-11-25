@@ -64,6 +64,8 @@ func generate_projectile(size: String, projectile_position: Vector2) -> Node:
 	projectile.position = projectile_position
 	projectile.z_index = Globals.LAYERS["PROJECTILE"]
 	projectile.gravity_scale = 0.1
+	projectile.contact_monitor = true
+	projectile.max_contacts_reported = 3
 
 	var children = projectile.get_children()
 
