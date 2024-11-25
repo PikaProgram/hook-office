@@ -22,8 +22,6 @@ func _on_start_area_button_pressed() -> void:
   # Play button pressed SFX
   button_click_bgm.play()
   
-  Globals.game_started = true # Obselete!
-  
   # Fade out and fade in transition
   TransitionScreen.transition()
   await TransitionScreen.on_transition_finished
