@@ -24,20 +24,23 @@ const SCROLL_SPEED = 100
 # true = Camera is scrolling
 var scroll_threshold = false
 
-# Game State
-# 0 = Menu state
-# 1 = Game state
-# 2 = Game over state
-# 3 = Paused state
+## # Game State;
+## 0 = Menu state;
+## 1 = Game state;
+## 2 = Game over state;
+## 3 = Paused state;
 var game_state = 0
 
-# Hook State
-# 0 = Hook is not thrown
-# 1 = Hook is thrown
-# 2 = Hook is attached
-# 3 = Hook is retracted
+## Hook State;
+## 0 = Hook is not thrown;
+## 1 = Hook is thrown;
+## 2 = Hook is attached;
+## 3 = Hook is retracted;
 var hook_state = 0
 
 # Room Count
 # The number of rooms to initially generate
 var room_count = 7
+
+var dim_main_theme = false
+var save_data = str_to_var(var_to_str(SaveData.read()))

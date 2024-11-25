@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bad4cthchrum1"]
+[gd_scene load_steps=5 format=3 uid="uid://cjxe8r15v3ler"]
 
 [ext_resource type="FontFile" uid="uid://qbq5delt70mc" path="res://assets/fonts/gemstone.ttf" id="1_bviob"]
 [ext_resource type="Script" path="res://scripts/settings_overlay.gd" id="1_pcedd"]

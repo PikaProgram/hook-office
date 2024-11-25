@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dq6tcfwgua5tp"]
+[gd_scene load_steps=19 format=3 uid="uid://dq6tcfwgua5tp"]
 
 [ext_resource type="PackedScene" uid="uid://8j0unbar3qrs" path="res://assets/entities/player.tscn" id="1_1hmd4"]
 [ext_resource type="PackedScene" uid="uid://wl1k4lem1gaq" path="res://assets/entities/hook.tscn" id="1_2jo02"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_5j1ls"]
 [ext_resource type="PackedScene" uid="uid://by4j52vndfaov" path="res://assets/entities/rope.tscn" id="4_kp7fi"]
-[ext_resource type="Script" path="res://scripts/generators/rooms.gd" id="5_28vne"]
-[ext_resource type="Script" path="res://scripts/generators/projectiles.gd" id="6_ywuar"]
+[ext_resource type="Texture2D" uid="uid://cekfahibwxky7" path="res://assets/sprites/ui/buttons/pause.png" id="5_j17y3"]
+[ext_resource type="Texture2D" uid="uid://7nkennk2fywj" path="res://assets/sprites/ui/score_board.png" id="6_rpbhd"]
+[ext_resource type="PackedScene" uid="uid://c3o5r8wg6a8y7" path="res://scenes/pause_menu.tscn" id="7_e2jga"]
+[ext_resource type="PackedScene" uid="uid://cjxe8r15v3ler" path="res://scenes/settings_overlay.tscn" id="8_4lict"]
+[ext_resource type="Script" path="res://scripts/main_bgm.gd" id="9_5m0jl"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_07b74"]
 
@@ -17,6 +20,23 @@ normal = Vector2(-1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_akqdq"]
 normal = Vector2(0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ct66s"]
+load_path = "res://.godot/imported/pause.png-230cc04dab728b6c76b62c891af925e8.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dqev6"]
+texture = SubResource("CompressedTexture2D_ct66s")
+modulate_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mih7c"]
+load_path = "res://.godot/imported/pause.png-230cc04dab728b6c76b62c891af925e8.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u72lg"]
+texture = SubResource("CompressedTexture2D_mih7c")
+modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fvn8h"]
+texture = ExtResource("5_j17y3")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_5j1ls")
@@ -64,8 +84,75 @@ position = Vector2(0, -640)
 shape = SubResource("WorldBoundaryShape2D_akqdq")
 disabled = true
 
-[node name="RoomSpawner" type="Node2D" parent="."]
-script = ExtResource("5_28vne")
+[node name="TopControl" type="Control" parent="."]
+z_index = 6
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -180.0
+offset_top = -640.0
+offset_right = 180.0
+offset_bottom = -571.0
 
-[node name="ProjectileSpawner" type="Node2D" parent="."]
-script = ExtResource("6_ywuar")
+[node name="ColorRect" type="ColorRect" parent="TopControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.294118)
+
+[node name="PauseButton" type="Button" parent="TopControl"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -85.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 58.0
+grow_horizontal = 0
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_dqev6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_dqev6")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_dqev6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dqev6")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_u72lg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_u72lg")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_fvn8h")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fvn8h")
+
+[node name="ScoreBoard" type="TextureRect" parent="TopControl"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 258.0
+offset_bottom = 58.0
+texture = ExtResource("6_rpbhd")
+expand_mode = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_e2jga")]
+process_mode = 3
+visible = false
+z_index = 6
+offset_left = -180.0
+offset_top = -640.0
+offset_right = 180.0
+offset_bottom = 0.0
+
+[node name="SettingsOverlay" parent="." instance=ExtResource("8_4lict")]
+process_mode = 3
+visible = false
+z_index = 6
+offset_left = -180.0
+offset_top = -640.0
+offset_right = 180.0
+offset_bottom = 0.0
+
+[node name="MainBGM" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+bus = &"Music"
+script = ExtResource("9_5m0jl")
+
+[connection signal="pressed" from="TopControl/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="visibility_changed" from="PauseMenu" to="PauseMenu" method="_on_visibility_changed"]
