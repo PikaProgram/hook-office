@@ -11,6 +11,7 @@ extends Node2D
 @onready var pause_menu: Control = $PauseMenu
 @onready var settings_overlay: Control = $SettingsOverlay
 @onready var projectile_spawner: Node2D = $ProjectileSpawner
+@onready var fire_node: Node2D = $Fire
 
 var rooms: Array = []
 var room_size = 8
@@ -21,10 +22,12 @@ var walls: Array[CompressedTexture2D] = [] # List of walls available in the game
 func _ready() -> void:
 	hook.z_index = Globals.LAYERS["HOOK"]  # Set hook to hook layer
 	player.z_index = Globals.LAYERS["PLAYER"]  # Set player to player layer
-	
+	fire_node.z_index = Globals.LAYERS["FIRE"]  # Set fire to fire layer
+
 	player.visible = false
 	hook.visible = false
 	rope.visible = false 
+	fire_node.visible = false
 
 # Main game loop - handles physics and state changes
 func _physics_process(delta: float) -> void:
@@ -45,10 +48,14 @@ func _physics_process(delta: float) -> void:
 		if !Globals.scroll_threshold:
 			if player.position.y <= -float(DisplayServer.screen_get_size().y) / 2.0:
 				Globals.scroll_threshold = true
+				fire_node.visible = true
+				for fire: AnimatedSprite2D in fire_node.get_children():
+					fire.play("default")
 		else:
-			var scroll_distance = min(Globals.SCROLL_SPEED * (floor(camera.offset.y / 10000) + 1), -Globals.SCROLL_SPEED) * delta
+			var scroll_distance = min(Globals.SCROLL_SPEED * (floor(camera.offset.y / 5000) + 1), -Globals.SCROLL_SPEED) * delta
 			camera.offset.y += scroll_distance
 			top_control.position.y += scroll_distance
+			fire_node.position.y += scroll_distance
 
 		# Check player collision with projectiles
 		for projectile: RigidBody2D in projectile_spawner.get_children():

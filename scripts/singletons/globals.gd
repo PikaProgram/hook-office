@@ -10,7 +10,8 @@ const LAYERS = {
   "PLAYER": 4,
   "PROJECTILE": 5,
   "HOOK": 6,
-  "UI": 7
+  "FIRE": 7,
+  "UI": 8
 }
 
 const FLOOR_DIRECTORY = "res://assets/entities/rooms/floors"
