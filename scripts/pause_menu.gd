@@ -12,7 +12,6 @@ func resume() -> void:
 
 func reset_all_state() -> void:
   # Reset game state
-  Globals.game_started = false
   Globals.game_state = 0
   
   # Reset hook and camera
