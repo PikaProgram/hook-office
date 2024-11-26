@@ -101,4 +101,18 @@ func _physics_process(delta: float) -> void:
 		pass
 	elif Globals.game_state == 3:
 		# Paused state
-		pass
+		
+		# Set pause menu position to top control position
+		pause_menu.position.y = top_control.position.y
+		pause_menu.visible = true
+
+		# Set settings overlay position to top control position
+		settings_overlay.position.y = top_control.position.y
+		settings_overlay.visible = false
+		
+		# Set game state to paused
+		get_tree().paused = true
+
+
+func _on_pause_button_pressed() -> void:
+	Globals.game_state = 3

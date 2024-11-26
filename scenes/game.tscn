@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dq6tcfwgua5tp"]
+[gd_scene load_steps=22 format=3 uid="uid://dq6tcfwgua5tp"]
 
 [ext_resource type="PackedScene" uid="uid://8j0unbar3qrs" path="res://assets/entities/player.tscn" id="1_1hmd4"]
 [ext_resource type="PackedScene" uid="uid://wl1k4lem1gaq" path="res://assets/entities/hook.tscn" id="1_2jo02"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c3o5r8wg6a8y7" path="res://scenes/pause_menu.tscn" id="7_e2jga"]
 [ext_resource type="PackedScene" uid="uid://cjxe8r15v3ler" path="res://scenes/settings_overlay.tscn" id="8_4lict"]
 [ext_resource type="Script" path="res://scripts/main_bgm.gd" id="9_5m0jl"]
+[ext_resource type="AudioStream" uid="uid://cahhjl8gub4vw" path="res://assets/audio/music/hook_office.mp3" id="9_vya3g"]
 [ext_resource type="Script" path="res://scripts/generators/projectiles.gd" id="10_1bc6h"]
 [ext_resource type="Script" path="res://scripts/generators/rooms.gd" id="11_e8qwg"]
 
@@ -94,7 +95,7 @@ anchors_preset = 0
 offset_left = -180.0
 offset_top = -640.0
 offset_right = 180.0
-offset_bottom = -571.0
+offset_bottom = -591.0
 
 [node name="ColorRect" type="ColorRect" parent="TopControl"]
 layout_mode = 1
@@ -110,10 +111,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -85.0
+offset_left = -75.0
 offset_top = 10.0
-offset_right = -10.0
-offset_bottom = 58.0
+offset_right = -15.0
+offset_bottom = 48.4
 grow_horizontal = 0
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_dqev6")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_dqev6")
@@ -128,8 +129,8 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_fvn8h")
 layout_mode = 1
 offset_left = 10.0
 offset_top = 10.0
-offset_right = 258.0
-offset_bottom = 58.0
+offset_right = 208.4
+offset_bottom = 48.4
 texture = ExtResource("6_rpbhd")
 expand_mode = 1
 
@@ -153,6 +154,7 @@ offset_bottom = 0.0
 
 [node name="MainBGM" type="AudioStreamPlayer" parent="."]
 process_mode = 3
+stream = ExtResource("9_vya3g")
 bus = &"Music"
 script = ExtResource("9_5m0jl")
 
