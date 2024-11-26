@@ -59,6 +59,12 @@ func _physics_process(delta: float) -> void:
 				)
 			add_child(projectile)
 
+		# Delete projectiles that are out of bounds
+		for projectile in projectile_nodes:
+			if projectile.position.y > camera.offset.y + DisplayServer.screen_get_size().y:
+				remove_child(projectile)
+				projectile.queue_free()
+
 func generate_projectile(size: String, projectile_position: Vector2) -> Node:
 	var projectile: RigidBody2D = projectiles[size][rng.randi_range(0, projectiles[size].size() - 1)].instantiate()
 	projectile.position = projectile_position
