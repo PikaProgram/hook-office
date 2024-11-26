@@ -11,10 +11,11 @@ func resume() -> void:
 
 
 func reset_all_state() -> void:
-  # Reset game state
-  Globals.game_state = 0
+  # Hide menu
+  visible = false
   
-  # Reset hook and camera
+  # Reset all state
+  Globals.game_state = 0
   Globals.hook_state = 0
   Globals.scroll_threshold = false
   
