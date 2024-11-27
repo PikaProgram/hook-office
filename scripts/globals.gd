@@ -44,3 +44,9 @@ var room_count = 7
 
 var dim_main_theme = false
 var save_data = str_to_var(var_to_str(SaveData.read()))
+
+func reset_all_state():
+  # Reset all state
+  game_state = 0
+  hook_state = 0
+  scroll_threshold = false

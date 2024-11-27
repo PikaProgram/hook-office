@@ -1,0 +1,127 @@
+[gd_scene load_steps=14 format=3 uid="uid://yejsqg3p7dkc"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_au7n2"]
+[ext_resource type="Texture2D" uid="uid://d2sxiwxj3a1g6" path="res://assets/sprites/ui/gameover/banner.png" id="2_u4duy"]
+[ext_resource type="Texture2D" uid="uid://cn81ys0xa01cw" path="res://assets/sprites/ui/gameover/score_board.png" id="3_xms41"]
+[ext_resource type="Texture2D" uid="uid://dj5kpvbkf70i" path="res://assets/sprites/ui/gameover/menu.png" id="4_3orwx"]
+[ext_resource type="FontFile" uid="uid://qbq5delt70mc" path="res://assets/fonts/gemstone.ttf" id="4_p1jgg"]
+[ext_resource type="Texture2D" uid="uid://gmbek7ucvfc2" path="res://assets/sprites/ui/gameover/restart.png" id="5_2e41d"]
+[ext_resource type="AudioStream" uid="uid://cucad1ppabqae" path="res://assets/audio/sfx/game_over.mp3" id="6_g1nf0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tf66a"]
+texture = ExtResource("5_2e41d")
+modulate_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mlix1"]
+texture = ExtResource("5_2e41d")
+modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xl8gj"]
+texture = ExtResource("5_2e41d")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kf787"]
+texture = ExtResource("4_3orwx")
+modulate_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_awkp2"]
+texture = ExtResource("4_3orwx")
+modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3pfl3"]
+texture = ExtResource("4_3orwx")
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 360.0
+offset_bottom = 640.0
+script = ExtResource("1_au7n2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.686275)
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.33
+offset_top = -231.5
+offset_right = 133.33
+offset_bottom = 231.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Banner" type="TextureRect" parent="MenuContainer"]
+custom_minimum_size = Vector2(266.66, 266.66)
+layout_mode = 2
+texture = ExtResource("2_u4duy")
+expand_mode = 1
+
+[node name="ScoreBoard" type="TextureRect" parent="MenuContainer"]
+custom_minimum_size = Vector2(266.66, 93.33)
+layout_mode = 2
+texture = ExtResource("3_xms41")
+expand_mode = 1
+
+[node name="ScoreLabel" type="Label" parent="MenuContainer/ScoreBoard"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.484
+anchor_top = 0.525
+anchor_right = 0.484
+anchor_bottom = 0.525
+offset_left = -1.06345
+offset_top = -14.9983
+offset_right = -0.063446
+offset_bottom = 15.0017
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_p1jgg")
+theme_override_font_sizes/font_size = 30
+text = "69420"
+
+[node name="Restart" type="Button" parent="MenuContainer"]
+custom_minimum_size = Vector2(106.66, 46.66)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_tf66a")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_tf66a")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_tf66a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tf66a")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_mlix1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mlix1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_xl8gj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xl8gj")
+
+[node name="Menu" type="Button" parent="MenuContainer"]
+custom_minimum_size = Vector2(106.66, 46.66)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_kf787")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_kf787")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_kf787")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kf787")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_awkp2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_awkp2")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_3pfl3")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3pfl3")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_g1nf0")
+bus = &"SFX"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="MenuContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MenuContainer/Menu" to="." method="_on_menu_pressed"]

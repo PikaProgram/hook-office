@@ -10,19 +10,6 @@ func resume() -> void:
   Globals.game_state = 1
 
 
-func reset_all_state() -> void:
-  # Hide menu
-  visible = false
-  
-  # Reset all state
-  Globals.game_state = 0
-  Globals.hook_state = 0
-  Globals.scroll_threshold = false
-  
-  # Unpause game
-  get_tree().paused = false
-
-
 func play_sfx() -> void:
   UninterruptibleSFX.start(button_pressed)
 
@@ -40,8 +27,8 @@ func _on_restart_button_pressed() -> void:
   play_sfx()
 
   # Reset all state
-  reset_all_state()
-
+  Globals.reset_all_state()
+  get_tree().paused = false
   get_tree().reload_current_scene()
 
 
@@ -49,20 +36,22 @@ func _on_back_button_pressed() -> void:
   play_sfx()
   
   # Reset all state
-  reset_all_state()
+  Globals.reset_all_state()
   
   # Fade out and in ahh transition
   TransitionScreen.transition()
   await TransitionScreen.on_transition_finished
   
   get_tree().change_scene_to_file("res://scenes/start_menu.tscn")
+  visible = false
 
 
 func _on_settings_button_pressed() -> void:
   play_sfx()
+
+  # Hide pause menu and show settings overlay
   visible = false
   settings_overlay.visible = true
-  print_debug("NOT FULLY IMPLEMENTED YET")
 
 
 func _on_visibility_changed() -> void:

@@ -7,6 +7,9 @@ extends Control
 @onready var SFX_BUS_ID = AudioServer.get_bus_index("SFX")
 
 func _ready() -> void:
+  # Set paused into false every time the game enter start menu
+  get_tree().paused = false
+
   # Set audio volumes based on saved config file
   AudioServer.set_bus_volume_db(MUSIC_BUS_ID, linear_to_db(Globals.save_data.volume.music))
   AudioServer.set_bus_mute(MUSIC_BUS_ID, Globals.save_data.volume.music < .05)

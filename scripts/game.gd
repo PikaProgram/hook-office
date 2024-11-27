@@ -10,6 +10,7 @@ extends Node2D
 @onready var top_control: Control = $TopControl
 @onready var pause_menu: Control = $PauseMenu
 @onready var settings_overlay: Control = $SettingsOverlay
+@onready var game_over: Control = $GameOver
 
 var rooms: Array = []
 var room_size = 8
@@ -98,7 +99,14 @@ func _physics_process(delta: float) -> void:
 
 	elif Globals.game_state == 2:
 		# Game over state
-		pass
+		
+		# Set game over position to top control position
+		game_over.position.y = top_control.position.y
+		game_over.visible = true
+
+		# Pause the game
+		get_tree().paused = true
+
 	elif Globals.game_state == 3:
 		# Paused state
 		
@@ -116,3 +124,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_pause_button_pressed() -> void:
 	Globals.game_state = 3
+
+
+func _on_bundir_button_pressed() -> void:
+	Globals.game_state = 2
