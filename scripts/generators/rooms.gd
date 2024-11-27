@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var camera: Camera2D = $"../Camera"
+@onready var projectile_spawner: Node2D = $"../ProjectileSpawner"
 
 var rng = RandomNumberGenerator.new()
 
@@ -36,29 +37,27 @@ func _ready() -> void:
 				walls.append(load(Globals.WALL_DIRECTORY + "/" + file))
 		wall_directory.list_dir_end()
 
+	for i in range(room_index + 1):
+		var room = generate_room(floors, walls, i)
+		rooms.append([room[0], room[1]])
+
+		add_child(room[0])
+		add_child(room[1])
+
 
 func _process(_delta: float) -> void:
-	if Globals.game_state == 0:
-		if rooms.size() <= 0:
-			for i in range(room_index):
-				var room = generate_room(floors, walls, i)
-				rooms.append([room[0], room[1]])
-
-				add_child(room[0])
-				add_child(room[1])
-
 	if Globals.game_state == 1:
 		for room in rooms:
 			var floor_scene = room[0]
 			var wall_sprite = room[1]
 
-			if floor_scene.position.y > DisplayServer.screen_get_size().y + camera.offset.y:
+			if floor_scene.position.y > DisplayServer.window_get_size().y + camera.offset.y:
 				remove_child(floor_scene)
 				remove_child(wall_sprite)
 				room_index += 1	
 				rooms.pop_front()
 
-				var new_room = generate_room(floors, walls, room_index - 1)
+				var new_room = generate_room(floors, walls, room_index)
 				add_child(new_room[0])
 				add_child(new_room[1])
 				rooms.append(new_room)
@@ -85,5 +84,11 @@ func generate_room(floor_array, wall_array, index: int) -> Array:
 	wall.scale *= .35
 
 	wall.texture = wall_texture
+
+	var projectiles = projectile_spawner.get_children()
+
+	for projectile in projectiles:
+		if projectile.get_class() == "RigidBody2D":
+			projectile.add_collision_exception_with(floor_scene)
 
 	return([floor_scene, wall])

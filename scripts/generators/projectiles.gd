@@ -5,7 +5,7 @@ extends Node2D
 @onready var player: CharacterBody2D = $"../Player"
 @onready var room_spawner: Node2D = $"../RoomSpawner"
 
-const spawn_speed: float = 1.0 / 3.0
+var spawn_speed: float = min(Globals.speed_multiplier, 5) / 3.0
 var spawns_quantity: float = 0.0
 
 var rng = RandomNumberGenerator.new()
@@ -44,26 +44,40 @@ func _physics_process(delta: float) -> void:
 		for projectile: RigidBody2D in projectile_nodes:
 			projectile.rotate(2 * PI * delta)
 
-		if spawns_quantity > 1:
+		if spawns_quantity > 1 and Globals.scroll_threshold:
 			spawns_quantity -= 1.0
 
 			var projectile_types = ["small", "medium", "large"]
-			var variance = (floor(camera.offset.y / 10000) + 1)
-			var weights = [0.6 * (1 - variance), 0.3, 0.1 * variance]
+			var variance = Globals.speed_multiplier
+			var weights = [60 - min(variance, 60), 30, 10 + min(variance, 60)]
 
 			var projectile_type = projectile_types[rng.rand_weighted(weights)]
 
 			var projectile = generate_projectile(
 				projectile_type,
-				Vector2(randf_range(-DisplayServer.screen_get_size().x / 2.0, DisplayServer.screen_get_size().x / 2.0), camera.offset.y - DisplayServer.screen_get_size().y)
+				Vector2(
+					randf_range(
+						-DisplayServer.window_get_size().x / 2.0,
+						DisplayServer.window_get_size().x / 2.0
+						),
+						camera.offset.y - DisplayServer.window_get_size().y
+					)
 				)
 			add_child(projectile)
+
+		# Delete projectiles that are out of bounds
+		for projectile in projectile_nodes:
+			if projectile.position.y > camera.offset.y + DisplayServer.window_get_size().y:
+				remove_child(projectile)
+				projectile.queue_free()
 
 func generate_projectile(size: String, projectile_position: Vector2) -> Node:
 	var projectile: RigidBody2D = projectiles[size][rng.randi_range(0, projectiles[size].size() - 1)].instantiate()
 	projectile.position = projectile_position
 	projectile.z_index = Globals.LAYERS["PROJECTILE"]
 	projectile.gravity_scale = 0.1
+	projectile.contact_monitor = true
+	projectile.max_contacts_reported = 3
 
 	var children = projectile.get_children()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dq6tcfwgua5tp"]
+[gd_scene load_steps=43 format=3 uid="uid://dq6tcfwgua5tp"]
 
 [ext_resource type="PackedScene" uid="uid://8j0unbar3qrs" path="res://assets/entities/player.tscn" id="1_1hmd4"]
 [ext_resource type="PackedScene" uid="uid://wl1k4lem1gaq" path="res://assets/entities/hook.tscn" id="1_2jo02"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scripts/generators/projectiles.gd" id="10_1bc6h"]
 [ext_resource type="PackedScene" uid="uid://yejsqg3p7dkc" path="res://scenes/game_over.tscn" id="10_66jvg"]
 [ext_resource type="Script" path="res://scripts/generators/rooms.gd" id="11_e8qwg"]
+[ext_resource type="Texture2D" uid="uid://c5d0wrivsimsj" path="res://assets/sprites/entities/fire_spritesheet.png" id="12_t3ahn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_07b74"]
 
@@ -42,6 +43,147 @@ modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fvn8h"]
 texture = ExtResource("5_j17y3")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpmg5"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(0, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3uor"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(160, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no62n"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(320, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se5a1"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(480, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oatiy"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(640, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeq3y"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(800, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fdnw"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(960, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8avn"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(1120, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5c48l"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(1280, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtw4u"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(1440, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmplj"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(1600, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibrax"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(1760, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjyoo"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(1920, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmfcv"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(2080, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1bxe"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(2240, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1xx3"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(2400, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md8la"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(2560, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rb7d"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(2720, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvkc2"]
+atlas = ExtResource("12_t3ahn")
+region = Rect2(2880, 0, 160, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ms8p6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpmg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3uor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no62n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se5a1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oatiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeq3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fdnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8avn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5c48l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtw4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmplj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibrax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjyoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmfcv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1bxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1xx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md8la")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rb7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvkc2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ox1n"]
 
@@ -75,8 +217,8 @@ scale = Vector2(0.2, 0.2)
 [node name="World Borders" type="StaticBody2D" parent="."]
 
 [node name="Bottom" type="CollisionShape2D" parent="World Borders"]
+scale = Vector2(2, 2)
 shape = SubResource("WorldBoundaryShape2D_07b74")
-disabled = true
 
 [node name="Left" type="CollisionShape2D" parent="World Borders"]
 position = Vector2(-156, -1)
@@ -202,6 +344,31 @@ script = ExtResource("10_1bc6h")
 [node name="RoomSpawner" type="Node2D" parent="."]
 script = ExtResource("11_e8qwg")
 
-[connection signal="pressed" from="TopControl/PauseButton" to="." method="_on_pause_button_pressed"]
+[node name="Fire" type="Node2D" parent="."]
+visible = false
+z_index = 7
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fire"]
+position = Vector2(-113, -31)
+sprite_frames = SubResource("SpriteFrames_ms8p6")
+frame = 6
+frame_progress = 0.876557
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Fire"]
+position = Vector2(-19, -32)
+sprite_frames = SubResource("SpriteFrames_ms8p6")
+frame = 10
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Fire"]
+position = Vector2(49, -31)
+sprite_frames = SubResource("SpriteFrames_ms8p6")
+frame = 3
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Fire"]
+position = Vector2(138, -32)
+sprite_frames = SubResource("SpriteFrames_ms8p6")
+frame = 13
+
+[connection signal="pressed" from="TopControl/PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="TopControl/BundirButton" to="." method="_on_bundir_button_pressed"]
 [connection signal="visibility_changed" from="PauseMenu" to="PauseMenu" method="_on_visibility_changed"]

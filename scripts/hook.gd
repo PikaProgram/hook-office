@@ -31,6 +31,7 @@ func _physics_process(_delta: float) -> void:
     if audio_state == 0:
       audio_state = 1
     velocity = (get_global_mouse_position() - player.position).normalized() * HOOK_SPEED
+    rotation = -velocity.angle_to(Vector2.UP)
   
   elif Globals.hook_state == 2:
     if audio_state == 1 or audio_state == 2:
