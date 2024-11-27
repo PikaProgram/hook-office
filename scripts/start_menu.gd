@@ -1,7 +1,6 @@
 extends Control
 
 @onready var bgm: AudioStreamPlayer = $StartMenuBGM
-@onready var button_click_bgm: AudioStreamPlayer = $ButtonClickBGM
 
 @onready var MUSIC_BUS_ID = AudioServer.get_bus_index("Music")
 @onready var SFX_BUS_ID = AudioServer.get_bus_index("SFX")
@@ -22,9 +21,6 @@ func _on_exit_button_pressed() -> void:
 
 
 func _on_start_area_button_pressed() -> void:
-  # Play button pressed SFX
-  button_click_bgm.play()
-  
   # Fade out and fade in transition
   TransitionScreen.transition()
   await TransitionScreen.on_transition_finished

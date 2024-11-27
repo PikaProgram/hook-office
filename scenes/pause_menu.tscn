@@ -1,92 +1,63 @@
-[gd_scene load_steps=30 format=3 uid="uid://c3o5r8wg6a8y7"]
+[gd_scene load_steps=23 format=3 uid="uid://c3o5r8wg6a8y7"]
 
 [ext_resource type="Texture2D" uid="uid://coigqqrscohfm" path="res://assets/sprites/ui/paused_window.png" id="1_7wxfx"]
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_hi3lf"]
 [ext_resource type="Texture2D" uid="uid://7bk3y871kpqv" path="res://assets/sprites/ui/buttons/resume.png" id="2_bamqa"]
-[ext_resource type="AudioStream" uid="uid://blowt12eb5d1d" path="res://assets/audio/sfx/button_press.wav" id="4_o027d"]
+[ext_resource type="PackedScene" uid="uid://byauqoqkqrjei" path="res://scenes/templates/button_with_sfx.tscn" id="4_6rp7f"]
+[ext_resource type="Texture2D" uid="uid://cqkr505ox6sk" path="res://assets/sprites/ui/buttons/restart.png" id="5_3u08u"]
+[ext_resource type="Texture2D" uid="uid://drqwslpwl3k4d" path="res://assets/sprites/ui/buttons/settings.png" id="6_m6326"]
+[ext_resource type="Texture2D" uid="uid://drf8rj61kohxs" path="res://assets/sprites/ui/buttons/back_menu.png" id="7_ws4jg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_38nd8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_exjn1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c2j3t"]
 texture = ExtResource("1_7wxfx")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j1i7e"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x5rho"]
 texture = ExtResource("2_bamqa")
 modulate_color = Color(0.901961, 0.901961, 0.901961, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_imvgl"]
-load_path = "res://.godot/imported/resume.png-77f275e3155a73a9040d6bc1df3a8446.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ehqju"]
-texture = SubResource("CompressedTexture2D_imvgl")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_25w6w"]
+texture = ExtResource("2_bamqa")
 modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_insu1"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_epcg2"]
 texture = ExtResource("2_bamqa")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f8fqv"]
-load_path = "res://.godot/imported/restart.png-5e238ecf5d4ea23452954c2b747db0ac.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxldg"]
-texture = SubResource("CompressedTexture2D_f8fqv")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vrjag"]
+texture = ExtResource("5_3u08u")
 modulate_color = Color(0.901961, 0.901961, 0.901961, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aq2lf"]
-load_path = "res://.godot/imported/restart.png-5e238ecf5d4ea23452954c2b747db0ac.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_61whp"]
-texture = SubResource("CompressedTexture2D_aq2lf")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vu0bd"]
+texture = ExtResource("5_3u08u")
 modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fdf66"]
-load_path = "res://.godot/imported/restart.png-5e238ecf5d4ea23452954c2b747db0ac.ctex"
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r2hyb"]
+texture = ExtResource("5_3u08u")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_41sbu"]
-texture = SubResource("CompressedTexture2D_fdf66")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vlp01"]
-load_path = "res://.godot/imported/restart.png-5e238ecf5d4ea23452954c2b747db0ac.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hfwvd"]
-texture = SubResource("CompressedTexture2D_vlp01")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7s62o"]
-load_path = "res://.godot/imported/settings.png-ea945ab6c8980fb511a261e3e8c11476.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xi6vs"]
-texture = SubResource("CompressedTexture2D_7s62o")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wy4jx"]
+texture = ExtResource("6_m6326")
 modulate_color = Color(0.901961, 0.901961, 0.901961, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1jiuc"]
-load_path = "res://.godot/imported/settings.png-ea945ab6c8980fb511a261e3e8c11476.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_41rp2"]
-texture = SubResource("CompressedTexture2D_1jiuc")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o2af7"]
+texture = ExtResource("6_m6326")
 modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nq7he"]
-load_path = "res://.godot/imported/settings.png-ea945ab6c8980fb511a261e3e8c11476.ctex"
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kss0y"]
+texture = ExtResource("6_m6326")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_16cos"]
-texture = SubResource("CompressedTexture2D_nq7he")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bpq32"]
-load_path = "res://.godot/imported/back_menu.png-83eb4278e96f6dc2999b5d7ebad676ee.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_spx2u"]
-texture = SubResource("CompressedTexture2D_bpq32")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lga38"]
+texture = ExtResource("7_ws4jg")
 modulate_color = Color(0.901961, 0.901961, 0.901961, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uid8r"]
-load_path = "res://.godot/imported/back_menu.png-83eb4278e96f6dc2999b5d7ebad676ee.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tnrtt"]
-texture = SubResource("CompressedTexture2D_uid8r")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4w1fw"]
+texture = ExtResource("7_ws4jg")
 modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_val7o"]
-load_path = "res://.godot/imported/back_menu.png-83eb4278e96f6dc2999b5d7ebad676ee.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3wrmi"]
-texture = SubResource("CompressedTexture2D_val7o")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7fiyb"]
+texture = ExtResource("7_ws4jg")
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -104,10 +75,22 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.588235)
 
-[node name="CancelArea" type="TextureButton" parent="."]
+[node name="CancelArea" parent="." instance=ExtResource("4_6rp7f")]
 layout_mode = 0
 offset_right = 360.0
 offset_bottom = 640.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_38nd8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_38nd8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_38nd8")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_38nd8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_38nd8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_38nd8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_38nd8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_38nd8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_38nd8")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_38nd8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_exjn1")
+play_sfx = false
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -139,58 +122,53 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 6
 
-[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="ResumeButton" parent="Panel/VBoxContainer" instance=ExtResource("4_6rp7f")]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_j1i7e")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_j1i7e")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_j1i7e")
-theme_override_styles/hover = SubResource("StyleBoxTexture_j1i7e")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_ehqju")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_ehqju")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_insu1")
-theme_override_styles/normal = SubResource("StyleBoxTexture_insu1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_x5rho")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_x5rho")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_x5rho")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x5rho")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_25w6w")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_25w6w")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_epcg2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_epcg2")
 
-[node name="RestartButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="RestartButton" parent="Panel/VBoxContainer" instance=ExtResource("4_6rp7f")]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_kxldg")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_kxldg")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_kxldg")
-theme_override_styles/hover = SubResource("StyleBoxTexture_kxldg")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_61whp")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_61whp")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_41sbu")
-theme_override_styles/normal = SubResource("StyleBoxTexture_hfwvd")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_vrjag")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_vrjag")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_vrjag")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vrjag")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_vu0bd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vu0bd")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_r2hyb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_r2hyb")
 
-[node name="SettingsButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="SettingsButton" parent="Panel/VBoxContainer" instance=ExtResource("4_6rp7f")]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_xi6vs")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_xi6vs")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_xi6vs")
-theme_override_styles/hover = SubResource("StyleBoxTexture_xi6vs")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_41rp2")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_41rp2")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_16cos")
-theme_override_styles/normal = SubResource("StyleBoxTexture_16cos")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_wy4jx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_wy4jx")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_wy4jx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wy4jx")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_o2af7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_o2af7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_kss0y")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kss0y")
 
-[node name="BackButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="BackButton" parent="Panel/VBoxContainer" instance=ExtResource("4_6rp7f")]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_spx2u")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_spx2u")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_spx2u")
-theme_override_styles/hover = SubResource("StyleBoxTexture_spx2u")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_tnrtt")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_tnrtt")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_3wrmi")
-theme_override_styles/normal = SubResource("StyleBoxTexture_3wrmi")
-
-[node name="ButtonPressedSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_o027d")
-volume_db = 24.0
-bus = &"SFX"
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_lga38")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_lga38")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_lga38")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lga38")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_4w1fw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4w1fw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_7fiyb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7fiyb")
 
 [connection signal="pressed" from="CancelArea" to="." method="_on_cancel_area_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

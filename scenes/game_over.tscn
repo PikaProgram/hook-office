@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://vrv2lqu2flpg"]
+[gd_scene load_steps=15 format=3 uid="uid://vrv2lqu2flpg"]
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_au7n2"]
 [ext_resource type="Texture2D" uid="uid://d2sxiwxj3a1g6" path="res://assets/sprites/ui/gameover/banner.png" id="2_u4duy"]
@@ -6,28 +6,29 @@
 [ext_resource type="Texture2D" uid="uid://dj5kpvbkf70i" path="res://assets/sprites/ui/gameover/menu.png" id="4_3orwx"]
 [ext_resource type="FontFile" uid="uid://qbq5delt70mc" path="res://assets/fonts/gemstone.ttf" id="4_p1jgg"]
 [ext_resource type="Texture2D" uid="uid://gmbek7ucvfc2" path="res://assets/sprites/ui/gameover/restart.png" id="5_2e41d"]
+[ext_resource type="PackedScene" uid="uid://byauqoqkqrjei" path="res://scenes/templates/button_with_sfx.tscn" id="5_idhd0"]
 [ext_resource type="AudioStream" uid="uid://cucad1ppabqae" path="res://assets/audio/sfx/game_over.mp3" id="6_g1nf0"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tf66a"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7h8cv"]
 texture = ExtResource("5_2e41d")
 modulate_color = Color(0.901961, 0.901961, 0.901961, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mlix1"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4cke1"]
 texture = ExtResource("5_2e41d")
 modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xl8gj"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3eg3c"]
 texture = ExtResource("5_2e41d")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kf787"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_87y0c"]
 texture = ExtResource("4_3orwx")
 modulate_color = Color(0.901961, 0.901961, 0.901961, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_awkp2"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h35s0"]
 texture = ExtResource("4_3orwx")
 modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3pfl3"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a6vmg"]
 texture = ExtResource("4_3orwx")
 
 [node name="GameOver" type="Control"]
@@ -92,33 +93,33 @@ theme_override_fonts/font = ExtResource("4_p1jgg")
 theme_override_font_sizes/font_size = 30
 text = "69420"
 
-[node name="Restart" type="Button" parent="MenuContainer"]
+[node name="Restart" parent="MenuContainer" instance=ExtResource("5_idhd0")]
 custom_minimum_size = Vector2(106.66, 46.66)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_tf66a")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_tf66a")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_tf66a")
-theme_override_styles/hover = SubResource("StyleBoxTexture_tf66a")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_mlix1")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_mlix1")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_xl8gj")
-theme_override_styles/normal = SubResource("StyleBoxTexture_xl8gj")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_7h8cv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_7h8cv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_7h8cv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7h8cv")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_4cke1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4cke1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_3eg3c")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3eg3c")
 
-[node name="Menu" type="Button" parent="MenuContainer"]
+[node name="Menu" parent="MenuContainer" instance=ExtResource("5_idhd0")]
 custom_minimum_size = Vector2(106.66, 46.66)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_kf787")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_kf787")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_kf787")
-theme_override_styles/hover = SubResource("StyleBoxTexture_kf787")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_awkp2")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_awkp2")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_3pfl3")
-theme_override_styles/normal = SubResource("StyleBoxTexture_3pfl3")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_87y0c")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_87y0c")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_87y0c")
+theme_override_styles/hover = SubResource("StyleBoxTexture_87y0c")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_h35s0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_h35s0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_a6vmg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_a6vmg")
 
-[node name="SFX" type="AudioStreamPlayer" parent="."]
+[node name="DumDumSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_g1nf0")
 bus = &"SFX"
 

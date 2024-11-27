@@ -11,7 +11,6 @@ func _ready() -> void:
   sfx_slider.value = Globals.save_data.volume.sfx
 
 func _on_cancel_area_pressed() -> void:
-  print_debug("Cancel area pressed")
   visible = false
   pause_menu.visible = true
   SaveData.write({ "volume": { "music": music_slider.value, "sfx": sfx_slider.value } })

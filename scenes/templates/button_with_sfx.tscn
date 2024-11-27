@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://byauqoqkqrjei"]
+
+[ext_resource type="PackedScene" uid="uid://b0hx73rlxrsct" path="res://scenes/templates/uninterruptible_sfx.tscn" id="1_vk2i7"]
+[ext_resource type="Script" path="res://scripts/button_with_sfx.gd" id="1_wclv6"]
+[ext_resource type="AudioStream" uid="uid://blowt12eb5d1d" path="res://assets/audio/sfx/button_press.wav" id="2_3rr2u"]
+
+[node name="ButtonWithSFX" type="Button"]
+script = ExtResource("1_wclv6")
+
+[node name="ButtonPressedSFX" parent="." instance=ExtResource("1_vk2i7")]
+stream = ExtResource("2_3rr2u")
+volume_db = 15.0
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -10,12 +10,7 @@ func resume() -> void:
   Globals.game_state = 1
 
 
-func play_sfx() -> void:
-  UninterruptibleSFX.start(button_pressed)
-
-
 func _on_resume_button_pressed() -> void:
-  play_sfx()
   resume()
 
 
@@ -24,8 +19,6 @@ func _on_cancel_area_pressed() -> void:
 
 
 func _on_restart_button_pressed() -> void:
-  play_sfx()
-
   # Reset all state
   Globals.reset_all_state()
   get_tree().paused = false
@@ -33,8 +26,6 @@ func _on_restart_button_pressed() -> void:
 
 
 func _on_back_button_pressed() -> void:
-  play_sfx()
-  
   # Reset all state
   Globals.reset_all_state()
   
@@ -47,8 +38,6 @@ func _on_back_button_pressed() -> void:
 
 
 func _on_settings_button_pressed() -> void:
-  play_sfx()
-
   # Hide pause menu and show settings overlay
   visible = false
   settings_overlay.visible = true
@@ -56,6 +45,3 @@ func _on_settings_button_pressed() -> void:
 
 func _on_visibility_changed() -> void:
   Globals.dim_main_theme = visible
-
-  if visible:
-    UninterruptibleSFX.start(button_pressed)

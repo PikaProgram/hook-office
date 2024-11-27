@@ -23,7 +23,6 @@ SaveData="*res://scripts/save_data.gd"
 Globals="*res://scripts/singletons/globals.gd"
 PlayerProperties="*res://scripts/singletons/player_properties.gd"
 TransitionScreen="*res://scenes/transition_screen.tscn"
-UninterruptibleSFX="*res://scenes/uninterruptible_sfx.tscn"
 
 [display]
 

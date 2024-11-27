@@ -1,7 +1,6 @@
 extends AudioStreamPlayer
 
 
-func start(resource: Resource) -> void:
-  stream = resource
+func _ready() -> void:
   seek(0)
-  play()
+

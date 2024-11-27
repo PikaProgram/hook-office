@@ -1,6 +1,6 @@
 extends Control
 
-@onready var sfx_controller = $SFX
+@onready var sfx_controller = $DumDumSFX
 @onready var score_label = $MenuContainer/ScoreBoard/ScoreLabel
 @onready var score_board = $MenuContainer/ScoreBoard
 
@@ -47,7 +47,7 @@ func _on_restart_pressed() -> void:
 
 
 func _on_menu_pressed() -> void:
-  UninterruptibleSFX.start(BUTTON_PRESSED_SFX)
+  # UninterruptibleSFX.start(BUTTON_PRESSED_SFX)
 
   # Reset all state
   Globals.reset_all_state()

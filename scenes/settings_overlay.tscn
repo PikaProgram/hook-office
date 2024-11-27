@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjxe8r15v3ler"]
+[gd_scene load_steps=7 format=3 uid="uid://cjxe8r15v3ler"]
 
 [ext_resource type="FontFile" uid="uid://qbq5delt70mc" path="res://assets/fonts/gemstone.ttf" id="1_bviob"]
 [ext_resource type="Script" path="res://scripts/settings_overlay.gd" id="1_pcedd"]
+[ext_resource type="PackedScene" uid="uid://byauqoqkqrjei" path="res://scenes/templates/button_with_sfx.tscn" id="2_gkfrg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_erp1o"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0lxqx"]
 
@@ -25,13 +28,22 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.588235)
 
-[node name="CancelArea" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CancelArea" parent="." instance=ExtResource("2_gkfrg")]
+layout_mode = 0
+offset_right = 360.0
+offset_bottom = 640.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_erp1o")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_erp1o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_erp1o")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_erp1o")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_erp1o")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_erp1o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_erp1o")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_erp1o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_erp1o")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_erp1o")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_erp1o")
+play_sfx = false
 
 [node name="VolumePanel" type="Panel" parent="."]
 layout_mode = 1
