@@ -10,7 +10,8 @@ const LAYERS = {
   "PLAYER": 4,
   "PROJECTILE": 5,
   "HOOK": 6,
-  "UI": 7
+  "FIRE": 7,
+  "UI": 8
 }
 
 const FLOOR_DIRECTORY = "res://assets/entities/rooms/floors"
@@ -44,3 +45,10 @@ var room_count = 7
 
 var dim_main_theme = false
 var save_data = str_to_var(var_to_str(SaveData.read()))
+
+# Random Number Generator
+var rng = RandomNumberGenerator.new()
+
+# Speed Multiplier
+var speed_multiplier = 1.0
+var speed_increment = 0.01
