@@ -24,7 +24,6 @@ func _ready() -> void:
 	player.z_index = Globals.LAYERS["PLAYER"]  # Set player to player layer
 	fire_node.z_index = Globals.LAYERS["FIRE"]  # Set fire to fire layer
 
-	player.visible = false
 	hook.visible = false
 	rope.visible = false 
 	fire_node.visible = false
@@ -32,14 +31,9 @@ func _ready() -> void:
 # Main game loop - handles physics and state changes
 func _physics_process(delta: float) -> void:
 	if Globals.game_state == 0:
-		top_control.visible = false
-		# Menu state
-		if Input.is_action_just_pressed("left_click"):
-			top_control.visible = true
-			Globals.game_state = 1 # Change to game state
-			player.visible = true
-			player.position = Vector2(0, -100)
-
+		top_control.visible = true
+		player.position = Vector2(0, -100)
+		Globals.game_state = 1
 	elif Globals.game_state == 1:
 		rope.set_point_position(0, hook.position)
 		rope.set_point_position(1, player.position)
