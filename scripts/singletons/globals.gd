@@ -60,6 +60,7 @@ func reset_all_state():
   # Reset global properties
   hook_state = 0
   game_state = 0
+  score = 0
   scroll_threshold = false
 
   # Reset player properties
