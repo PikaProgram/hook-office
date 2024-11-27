@@ -76,6 +76,11 @@ func _physics_process(delta: float) -> void:
 
     # Check player collision with projectiles
     for projectile: RigidBody2D in projectile_spawner.get_children():
+      var distance = (player.position - projectile.position).normalized()
+
+      if distance.y < Globals.SFX_MIN_OBJECT_DISTANCE:
+        pass
+
       if projectile.get_colliding_bodies().size() > 0:
         for body in projectile.get_colliding_bodies():
           if body == player:

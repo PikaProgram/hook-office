@@ -19,6 +19,7 @@ const WALL_DIRECTORY = "res://assets/sprites/rooms/walls/"
 const PROJECTILE_DIRECTORY = "res://assets/entities/projectiles/"
 
 const SCROLL_SPEED = 100
+const SFX_MIN_OBJECT_DISTANCE = 100
 
 # Scrolling
 # false = Camera is not scrolling

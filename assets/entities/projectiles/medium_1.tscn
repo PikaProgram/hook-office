@@ -1,14 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://daxgb7qy17wsv"]
+[gd_scene load_steps=6 format=3 uid="uid://daxgb7qy17wsv"]
 
+[ext_resource type="Script" path="res://scripts/projectile_fall.gd" id="1_pmest"]
 [ext_resource type="Texture2D" uid="uid://brw5bh8y3u86v" path="res://assets/sprites/items/item_2.png" id="1_tyuag"]
+[ext_resource type="PackedScene" uid="uid://b0hx73rlxrsct" path="res://scenes/templates/uninterruptible_sfx.tscn" id="3_80dgh"]
+[ext_resource type="AudioStream" uid="uid://txtcr0qa68dq" path="res://assets/audio/sfx/objects/falling_medium.mp3" id="4_gkn2y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_65luv"]
 radius = 40.0
 
 [node name="StaticBody2D" type="RigidBody2D"]
-
-[node name="Item2" type="Sprite2D" parent="."]
-texture = ExtResource("1_tyuag")
+script = ExtResource("1_pmest")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_65luv")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_tyuag")
+
+[node name="SFX" parent="Sprite" instance=ExtResource("3_80dgh")]
+stream = ExtResource("4_gkn2y")
