@@ -52,3 +52,5 @@ var rng = RandomNumberGenerator.new()
 # Speed Multiplier
 var speed_multiplier = 1.0
 var speed_increment = 0.01
+
+var score = 0

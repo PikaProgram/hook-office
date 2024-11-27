@@ -51,6 +51,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			var scroll_distance = -Globals.SCROLL_SPEED * Globals.speed_multiplier * delta
 			Globals.speed_multiplier += Globals.speed_increment * (windows_size.y / 2.0 + camera.offset.y) / 10000.0  * delta 
+			Globals.score += abs(floor(scroll_distance/100))
 			camera.offset.y += scroll_distance
 			top_control.position.y += scroll_distance
 			fire_node.position.y += scroll_distance
