@@ -13,6 +13,7 @@ extends Node2D
 @onready var projectile_spawner: Node2D = $ProjectileSpawner
 @onready var fire_node: Node2D = $Fire
 @onready var bottom: CollisionShape2D = $"World Borders/Bottom"
+@onready var player_sprite: AnimatedSprite2D = player.get_child(0)
 
 var rooms: Array = []
 var room_size = 8
@@ -64,6 +65,7 @@ func _physics_process(delta: float) -> void:
 			PlayerProperties.life_points -= 1
 
 		if PlayerProperties.life_points <= 0:
+			Globals.hook_state = 0
 			Globals.game_state = 2
 
 		# Check player collision with projectiles
@@ -75,8 +77,12 @@ func _physics_process(delta: float) -> void:
 						PlayerProperties.immortality_state = true
 						PlayerProperties.life_points -= 1
 
+		if Input.is_key_pressed(KEY_SPACE) and (Globals.hook_state > 0 and Globals.hook_state < 3):
+			Globals.hook_state = 0
+
 		# State 0: Hook is ready to be thrown
 		if Globals.hook_state == 0:
+
 			hook.visible = false
 			rope.visible = false
 
@@ -94,14 +100,9 @@ func _physics_process(delta: float) -> void:
 
 		# State 1: Hook is flying through air
 		elif Globals.hook_state == 1:
-			# If hook hits something, change to hooked state
-			if Input.is_key_pressed(KEY_SPACE):
-				print_debug("HookBounced")
-				Globals.hook_state = 3
-			else:
-				if hook.get_slide_collision_count() > 0:
-					print_debug("HookHit")
-					Globals.hook_state = 2
+			if hook.get_slide_collision_count() > 0:
+				print_debug("HookHit")
+				Globals.hook_state = 2
 
 		# State 2: Hook is attached, player is swinging
 		elif Globals.hook_state == 2:

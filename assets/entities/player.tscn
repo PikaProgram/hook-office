@@ -1,7 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://8j0unbar3qrs"]
+[gd_scene load_steps=9 format=3 uid="uid://8j0unbar3qrs"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_y0epb"]
-[ext_resource type="Texture2D" uid="uid://cmvligiksir2g" path="res://assets/sprites/entities/player.png" id="2_ab7up"]
+[ext_resource type="Texture2D" uid="uid://qmqbgnw0qkvv" path="res://assets/sprites/entities/player/Action (hit left).PNG" id="2_gnp23"]
+[ext_resource type="Texture2D" uid="uid://dr62e1hod57cr" path="res://assets/sprites/entities/player/Action (using grapple left).PNG" id="3_bdh41"]
+[ext_resource type="Texture2D" uid="uid://bp5i7dx0eind8" path="res://assets/sprites/entities/player/Idle (with hook left).PNG" id="4_cavrr"]
+[ext_resource type="Texture2D" uid="uid://dqw3skctqgt0v" path="res://assets/sprites/entities/player/Idle (without grapple left).PNG" id="5_0qt5f"]
+[ext_resource type="Texture2D" uid="uid://dn1deyh38xg8" path="res://assets/sprites/entities/player/Idle (without hook left).PNG" id="6_tl8vu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_laihn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gnp23")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bdh41")
+}],
+"loop": true,
+"name": &"hooking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_0qt5f")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cavrr")
+}],
+"loop": true,
+"name": &"idle_with_hook",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_tl8vu")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6g2v0"]
 size = Vector2(233, 424)
@@ -9,9 +56,10 @@ size = Vector2(233, 424)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_y0epb")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_laihn")
+animation = &"hooking"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(14.5, 18)
 shape = SubResource("RectangleShape2D_6g2v0")
-
-[node name="Player" type="Sprite2D" parent="."]
-texture = ExtResource("2_ab7up")

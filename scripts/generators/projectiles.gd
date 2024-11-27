@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 		for projectile: RigidBody2D in projectile_nodes:
 			projectile.rotate(2 * PI * delta)
 
-		if spawns_quantity > 1:
+		if spawns_quantity > 1 and Globals.scroll_threshold:
 			spawns_quantity -= 1.0
 
 			var projectile_types = ["small", "medium", "large"]

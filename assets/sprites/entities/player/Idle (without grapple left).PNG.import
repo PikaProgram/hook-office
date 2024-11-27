@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwdg0ks8f85wa"
-path="res://.godot/imported/hook.png-374358ce8175b51d7a63a3d12e70e0c2.ctex"
+uid="uid://dqw3skctqgt0v"
+path="res://.godot/imported/Idle (without grapple left).PNG-bd5db7c02d017e52237d919e221966db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/entities/hook.png"
-dest_files=["res://.godot/imported/hook.png-374358ce8175b51d7a63a3d12e70e0c2.ctex"]
+source_file="res://assets/sprites/entities/player/Idle (without grapple left).PNG"
+dest_files=["res://.godot/imported/Idle (without grapple left).PNG-bd5db7c02d017e52237d919e221966db.ctex"]
 
 [params]
 
