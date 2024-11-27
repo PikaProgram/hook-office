@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dq6tcfwgua5tp"]
+[gd_scene load_steps=46 format=3 uid="uid://dq6tcfwgua5tp"]
 
 [ext_resource type="PackedScene" uid="uid://8j0unbar3qrs" path="res://assets/entities/player.tscn" id="1_1hmd4"]
 [ext_resource type="PackedScene" uid="uid://wl1k4lem1gaq" path="res://assets/entities/hook.tscn" id="1_2jo02"]
@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://scripts/main_bgm.gd" id="9_5m0jl"]
 [ext_resource type="AudioStream" uid="uid://cahhjl8gub4vw" path="res://assets/audio/music/hook_office.mp3" id="9_vya3g"]
 [ext_resource type="Script" path="res://scripts/generators/projectiles.gd" id="10_1bc6h"]
-[ext_resource type="PackedScene" uid="uid://yejsqg3p7dkc" path="res://scenes/game_over.tscn" id="10_66jvg"]
+[ext_resource type="PackedScene" uid="uid://vrv2lqu2flpg" path="res://scenes/game_over.tscn" id="10_66jvg"]
 [ext_resource type="Script" path="res://scripts/generators/rooms.gd" id="11_e8qwg"]
 [ext_resource type="Texture2D" uid="uid://c5d0wrivsimsj" path="res://assets/sprites/entities/fire_spritesheet.png" id="12_t3ahn"]
 
@@ -43,6 +43,8 @@ modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fvn8h"]
 texture = ExtResource("5_j17y3")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ox1n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cpmg5"]
 atlas = ExtResource("12_t3ahn")
@@ -185,8 +187,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ox1n"]
-
 [node name="Game" type="Node2D"]
 script = ExtResource("1_5j1ls")
 
@@ -305,33 +305,6 @@ offset_bottom = 48.4
 texture = ExtResource("6_rpbhd")
 expand_mode = 1
 
-[node name="PauseMenu" parent="." instance=ExtResource("7_e2jga")]
-process_mode = 3
-visible = false
-z_index = 6
-offset_left = -180.0
-offset_top = -640.0
-offset_right = 180.0
-offset_bottom = 0.0
-
-[node name="SettingsOverlay" parent="." instance=ExtResource("8_4lict")]
-process_mode = 3
-visible = false
-z_index = 6
-offset_left = -180.0
-offset_top = -640.0
-offset_right = 180.0
-offset_bottom = 0.0
-
-[node name="GameOver" parent="." instance=ExtResource("10_66jvg")]
-process_mode = 3
-visible = false
-z_index = 7
-offset_left = -180.0
-offset_top = -640.0
-offset_right = 180.0
-offset_bottom = 0.0
-
 [node name="MainBGM" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("9_vya3g")
@@ -369,6 +342,33 @@ position = Vector2(138, -32)
 sprite_frames = SubResource("SpriteFrames_ms8p6")
 frame = 13
 
-[connection signal="pressed" from="TopControl/PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
+[node name="PauseMenu" parent="." instance=ExtResource("7_e2jga")]
+process_mode = 3
+visible = false
+z_index = 6
+offset_left = -180.0
+offset_top = -640.0
+offset_right = 180.0
+offset_bottom = 0.0
+
+[node name="SettingsOverlay" parent="." instance=ExtResource("8_4lict")]
+process_mode = 3
+visible = false
+z_index = 6
+offset_left = -180.0
+offset_top = -640.0
+offset_right = 180.0
+offset_bottom = 0.0
+
+[node name="GameOver" parent="." instance=ExtResource("10_66jvg")]
+process_mode = 3
+visible = false
+z_index = 7
+offset_left = -180.0
+offset_top = -640.0
+offset_right = 180.0
+offset_bottom = 0.0
+
+[connection signal="pressed" from="TopControl/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="TopControl/BundirButton" to="." method="_on_bundir_button_pressed"]
 [connection signal="visibility_changed" from="PauseMenu" to="PauseMenu" method="_on_visibility_changed"]

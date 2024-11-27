@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://yejsqg3p7dkc"]
+[gd_scene load_steps=14 format=3 uid="uid://vrv2lqu2flpg"]
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_au7n2"]
 [ext_resource type="Texture2D" uid="uid://d2sxiwxj3a1g6" path="res://assets/sprites/ui/gameover/banner.png" id="2_u4duy"]

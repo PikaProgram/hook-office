@@ -54,3 +54,8 @@ var speed_multiplier = 1.0
 var speed_increment = 0.01
 
 var score = 0
+
+func reset_all_state():
+  hook_state = 0
+  game_state = 0
+  scroll_threshold = false
