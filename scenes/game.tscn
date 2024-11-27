@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dq6tcfwgua5tp"]
+[gd_scene load_steps=44 format=3 uid="uid://dq6tcfwgua5tp"]
 
 [ext_resource type="PackedScene" uid="uid://8j0unbar3qrs" path="res://assets/entities/player.tscn" id="1_1hmd4"]
 [ext_resource type="PackedScene" uid="uid://wl1k4lem1gaq" path="res://assets/entities/hook.tscn" id="1_2jo02"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://by4j52vndfaov" path="res://assets/entities/rope.tscn" id="4_kp7fi"]
 [ext_resource type="Texture2D" uid="uid://cekfahibwxky7" path="res://assets/sprites/ui/buttons/pause.png" id="5_j17y3"]
 [ext_resource type="Texture2D" uid="uid://7nkennk2fywj" path="res://assets/sprites/ui/score_board.png" id="6_rpbhd"]
-[ext_resource type="FontFile" uid="uid://qbq5delt70mc" path="res://assets/fonts/gemstone.ttf" id="6_t7vcm"]
 [ext_resource type="PackedScene" uid="uid://c3o5r8wg6a8y7" path="res://scenes/pause_menu.tscn" id="7_e2jga"]
 [ext_resource type="PackedScene" uid="uid://cjxe8r15v3ler" path="res://scenes/settings_overlay.tscn" id="8_4lict"]
 [ext_resource type="Script" path="res://scripts/main_bgm.gd" id="9_5m0jl"]
@@ -43,8 +42,6 @@ modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fvn8h"]
 texture = ExtResource("5_j17y3")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ox1n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cpmg5"]
 atlas = ExtResource("12_t3ahn")
@@ -271,31 +268,6 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_u72lg")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_fvn8h")
 theme_override_styles/normal = SubResource("StyleBoxTexture_fvn8h")
 
-[node name="BundirButton" type="Button" parent="TopControl"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -149.0
-offset_top = 10.0
-offset_right = -78.0
-offset_bottom = 48.4
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("6_t7vcm")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1ox1n")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_1ox1n")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_1ox1n")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_1ox1n")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1ox1n")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_1ox1n")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_1ox1n")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_1ox1n")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_1ox1n")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1ox1n")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_1ox1n")
-text = "Bundir"
-
 [node name="ScoreBoard" type="TextureRect" parent="TopControl"]
 layout_mode = 1
 offset_left = 10.0
@@ -370,5 +342,4 @@ offset_right = 180.0
 offset_bottom = 0.0
 
 [connection signal="pressed" from="TopControl/PauseButton" to="." method="_on_pause_button_pressed"]
-[connection signal="pressed" from="TopControl/BundirButton" to="." method="_on_bundir_button_pressed"]
 [connection signal="visibility_changed" from="PauseMenu" to="PauseMenu" method="_on_visibility_changed"]
