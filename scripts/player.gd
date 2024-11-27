@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var player: CharacterBody2D = $"."
 @onready var hook: CharacterBody2D = $"../Hook"
 @onready var projectile_spawner: Node2D = $"../ProjectileSpawner"
+@onready var room_spawner: Node2D = $"../RoomSpawner"
 
 # Variables
 var target_position = Vector2()
@@ -23,15 +24,16 @@ func _physics_process(delta: float) -> void:
 			print_debug("ImmortalityOver")
 			print_debug(immortality_time)
 			PlayerProperties.immortality_state = false
+			modulate.a = 1
 			immortality_time += PlayerProperties.immortality_time
 			for projectile in projectiles:
 				player.remove_collision_exception_with(projectile)
 		else:
+			modulate.a = 0.5
 			print_debug("ImmortalityActive")
 			for projectile in projectiles:
 				player.add_collision_exception_with(projectile)
 			immortality_time -= delta
-
 	if Globals.hook_state == 0:
 		pass
 

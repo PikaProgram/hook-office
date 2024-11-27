@@ -12,11 +12,13 @@ extends Node2D
 @onready var settings_overlay: Control = $SettingsOverlay
 @onready var projectile_spawner: Node2D = $ProjectileSpawner
 @onready var fire_node: Node2D = $Fire
+@onready var bottom: CollisionShape2D = $"World Borders/Bottom"
 
 var rooms: Array = []
 var room_size = 8
 var floors: Array[PackedScene] = [] # List of floors available in the game
 var walls: Array[CompressedTexture2D] = [] # List of walls available in the game
+var windows_size = DisplayServer.window_get_size()
 
 # Initialize game state when scene loads
 func _ready() -> void:
@@ -40,16 +42,29 @@ func _physics_process(delta: float) -> void:
 
 		# Scroll the camera if player is close to the top of the screen
 		if !Globals.scroll_threshold:
-			if player.position.y <= -float(DisplayServer.screen_get_size().y) / 2.0:
+			if player.position.y <= -float(windows_size.y) / 2.0:
 				Globals.scroll_threshold = true
 				fire_node.visible = true
 				for fire: AnimatedSprite2D in fire_node.get_children():
 					fire.play("default")
 		else:
-			var scroll_distance = min(Globals.SCROLL_SPEED * (floor(camera.offset.y / 5000) + 1), -Globals.SCROLL_SPEED) * delta
+			var scroll_distance = -Globals.SCROLL_SPEED * Globals.speed_multiplier * delta
+			Globals.speed_multiplier += Globals.speed_increment * (windows_size.y / 2.0 + camera.offset.y) / 10000.0  * delta 
 			camera.offset.y += scroll_distance
 			top_control.position.y += scroll_distance
 			fire_node.position.y += scroll_distance
+
+		# If the player has fallen off the screen, give a boost
+		if player.position.y > windows_size.y / 2.0 + camera.offset.y:
+			print("PlayerFallOff")
+			player.position.x = 0
+			player.position.y = camera.offset.y
+			player.velocity = Vector2.UP * PlayerProperties.jump_force
+			PlayerProperties.immortality_state = true
+			PlayerProperties.life_points -= 1
+
+		if PlayerProperties.life_points <= 0:
+			Globals.game_state = 2
 
 		# Check player collision with projectiles
 		for projectile: RigidBody2D in projectile_spawner.get_children():
@@ -58,6 +73,7 @@ func _physics_process(delta: float) -> void:
 					if body == player:
 						print_debug("PlayerProjectileHit")
 						PlayerProperties.immortality_state = true
+						PlayerProperties.life_points -= 1
 
 		# State 0: Hook is ready to be thrown
 		if Globals.hook_state == 0:

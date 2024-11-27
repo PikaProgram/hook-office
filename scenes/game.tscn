@@ -212,6 +212,7 @@ scale = Vector2(0.2, 0.2)
 [node name="World Borders" type="StaticBody2D" parent="."]
 
 [node name="Bottom" type="CollisionShape2D" parent="World Borders"]
+scale = Vector2(2, 2)
 shape = SubResource("WorldBoundaryShape2D_07b74")
 
 [node name="Left" type="CollisionShape2D" parent="World Borders"]

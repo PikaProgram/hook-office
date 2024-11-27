@@ -51,7 +51,7 @@ func _process(_delta: float) -> void:
 			var floor_scene = room[0]
 			var wall_sprite = room[1]
 
-			if floor_scene.position.y > DisplayServer.screen_get_size().y + camera.offset.y:
+			if floor_scene.position.y > DisplayServer.window_get_size().y + camera.offset.y:
 				remove_child(floor_scene)
 				remove_child(wall_sprite)
 				room_index += 1	

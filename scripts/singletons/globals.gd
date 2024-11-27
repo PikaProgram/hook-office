@@ -45,3 +45,10 @@ var room_count = 7
 
 var dim_main_theme = false
 var save_data = str_to_var(var_to_str(SaveData.read()))
+
+# Random Number Generator
+var rng = RandomNumberGenerator.new()
+
+# Speed Multiplier
+var speed_multiplier = 1.0
+var speed_increment = 0.01
