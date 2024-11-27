@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dq6tcfwgua5tp"]
+[gd_scene load_steps=45 format=3 uid="uid://dq6tcfwgua5tp"]
 
 [ext_resource type="PackedScene" uid="uid://8j0unbar3qrs" path="res://assets/entities/player.tscn" id="1_1hmd4"]
 [ext_resource type="PackedScene" uid="uid://wl1k4lem1gaq" path="res://assets/entities/hook.tscn" id="1_2jo02"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://vrv2lqu2flpg" path="res://scenes/game_over.tscn" id="10_66jvg"]
 [ext_resource type="Script" path="res://scripts/generators/rooms.gd" id="11_e8qwg"]
 [ext_resource type="Texture2D" uid="uid://c5d0wrivsimsj" path="res://assets/sprites/entities/fire_spritesheet.png" id="12_t3ahn"]
+[ext_resource type="AudioStream" uid="uid://b7k26qff0lm5x" path="res://assets/audio/sfx/objects/fire_crackling.mp3" id="14_3ubfp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_07b74"]
 
@@ -302,23 +303,28 @@ z_index = 7
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fire"]
 position = Vector2(-113, -31)
 sprite_frames = SubResource("SpriteFrames_ms8p6")
-frame = 6
-frame_progress = 0.876557
+frame_progress = 0.432999
+
+[node name="FireSFX" type="AudioStreamPlayer2D" parent="Fire/AnimatedSprite2D"]
+position = Vector2(113, 31)
+stream = ExtResource("14_3ubfp")
+volume_db = 10.0
+autoplay = true
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Fire"]
 position = Vector2(-19, -32)
 sprite_frames = SubResource("SpriteFrames_ms8p6")
-frame = 10
+frame_progress = 0.16724
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Fire"]
 position = Vector2(49, -31)
 sprite_frames = SubResource("SpriteFrames_ms8p6")
-frame = 3
+frame_progress = 0.981606
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Fire"]
 position = Vector2(138, -32)
 sprite_frames = SubResource("SpriteFrames_ms8p6")
-frame = 13
+frame_progress = 0.151982
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_e2jga")]
 process_mode = 3
