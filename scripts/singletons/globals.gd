@@ -53,9 +53,14 @@ var rng = RandomNumberGenerator.new()
 var speed_multiplier = 1.0
 var speed_increment = 0.01
 
-var score = 0
+var score: int = 0
 
 func reset_all_state():
+  # Reset global properties
   hook_state = 0
   game_state = 0
   scroll_threshold = false
+
+  # Reset player properties
+  PlayerProperties.life_points = 3
+  PlayerProperties.immortality_state = false

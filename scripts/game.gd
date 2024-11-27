@@ -10,6 +10,7 @@ extends Node2D
 @onready var top_control: Control = $TopControl
 @onready var pause_menu: Control = $PauseMenu
 @onready var settings_overlay: Control = $SettingsOverlay
+@onready var score_label: Label = $TopControl/ScoreLabel
 @onready var projectile_spawner: Node2D = $ProjectileSpawner
 @onready var fire_node: Node2D = $Fire
 @onready var bottom: CollisionShape2D = $"World Borders/Bottom"
@@ -34,6 +35,7 @@ func _ready() -> void:
 
 # Main game loop - handles physics and state changes
 func _physics_process(delta: float) -> void:
+	score_label.text = var_to_str(Globals.score)
 	if Globals.game_state == 0:
 		top_control.visible = true
 		player.position = Vector2(0, -100)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dq6tcfwgua5tp"]
+[gd_scene load_steps=45 format=3 uid="uid://dq6tcfwgua5tp"]
 
 [ext_resource type="PackedScene" uid="uid://8j0unbar3qrs" path="res://assets/entities/player.tscn" id="1_1hmd4"]
 [ext_resource type="PackedScene" uid="uid://wl1k4lem1gaq" path="res://assets/entities/hook.tscn" id="1_2jo02"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://by4j52vndfaov" path="res://assets/entities/rope.tscn" id="4_kp7fi"]
 [ext_resource type="Texture2D" uid="uid://cekfahibwxky7" path="res://assets/sprites/ui/buttons/pause.png" id="5_j17y3"]
 [ext_resource type="Texture2D" uid="uid://7nkennk2fywj" path="res://assets/sprites/ui/score_board.png" id="6_rpbhd"]
+[ext_resource type="FontFile" uid="uid://qbq5delt70mc" path="res://assets/fonts/gemstone.ttf" id="7_38oxe"]
 [ext_resource type="PackedScene" uid="uid://c3o5r8wg6a8y7" path="res://scenes/pause_menu.tscn" id="7_e2jga"]
 [ext_resource type="PackedScene" uid="uid://cjxe8r15v3ler" path="res://scenes/settings_overlay.tscn" id="8_4lict"]
 [ext_resource type="Script" path="res://scripts/main_bgm.gd" id="9_5m0jl"]
@@ -276,6 +277,20 @@ offset_right = 208.4
 offset_bottom = 48.4
 texture = ExtResource("6_rpbhd")
 expand_mode = 1
+
+[node name="ScoreLabel" type="Label" parent="TopControl"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -20.0
+offset_right = 62.0
+offset_bottom = -3.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_38oxe")
+theme_override_font_sizes/font_size = 16
+text = "0"
 
 [node name="MainBGM" type="AudioStreamPlayer" parent="."]
 process_mode = 3

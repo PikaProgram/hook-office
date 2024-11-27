@@ -16,13 +16,14 @@ const SCORE_BOARD = preload("res://assets/sprites/ui/gameover/score_board.png")
 func _on_visibility_changed() -> void:
   if visible:
     var high_score: int = Globals.save_data.high_score
-    var current_score: int = 0
+    var current_score = Globals.score
     score_label.text = var_to_str(current_score)
 
     if current_score > high_score:
       sfx_controller.stream = HIGH_SCORE_SFX
 
       score_board.texture = HIGHSCORE_BOARD
+      SaveData.write({ "high_score": current_score })
 
       sfx_controller.play()
       await sfx_controller.finished
