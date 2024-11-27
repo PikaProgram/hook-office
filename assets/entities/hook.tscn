@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://wl1k4lem1gaq"]
 
-[ext_resource type="Texture2D" uid="uid://dwdg0ks8f85wa" path="res://assets/sprites/entities/hook.png" id="1_b5mnr"]
 [ext_resource type="Script" path="res://scripts/hook.gd" id="1_ysjvi"]
+[ext_resource type="Texture2D" uid="uid://bkmxs1kqlxhse" path="res://assets/sprites/entities/hook/Hook (left).PNG" id="2_mahce"]
 [ext_resource type="AudioStream" uid="uid://7yyku3230x86" path="res://assets/audio/sfx/hooks/hook_launch.wav" id="3_wuy8d"]
 [ext_resource type="AudioStream" uid="uid://b88uc1tjp1ywx" path="res://assets/audio/sfx/hooks/hook_travelling.wav" id="4_nqnvh"]
 [ext_resource type="AudioStream" uid="uid://c8ku8fachon42" path="res://assets/audio/sfx/hooks/hook_hit.wav" id="5_utkpb"]
@@ -13,8 +13,10 @@ radius = 0.0
 script = ExtResource("1_ysjvi")
 
 [node name="HookSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_b5mnr")
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_mahce")
+offset = Vector2(-37, -14)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_em210")

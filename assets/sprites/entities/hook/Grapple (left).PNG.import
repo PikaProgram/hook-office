@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmvligiksir2g"
-path="res://.godot/imported/player.png-afcf50e40d8f77afb11ad53686456873.ctex"
+uid="uid://b4vp0fd0mo57u"
+path="res://.godot/imported/Grapple (left).PNG-2d74c3cb05af58ef4e5b68ce6e591d7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/entities/player.png"
-dest_files=["res://.godot/imported/player.png-afcf50e40d8f77afb11ad53686456873.ctex"]
+source_file="res://assets/sprites/entities/hook/Grapple (left).PNG"
+dest_files=["res://.godot/imported/Grapple (left).PNG-2d74c3cb05af58ef4e5b68ce6e591d7e.ctex"]
 
 [params]
 
