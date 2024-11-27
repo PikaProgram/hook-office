@@ -4,6 +4,7 @@ extends Node2D
 # Node references initialized when scene loads
 @onready var hook: CharacterBody2D = $Hook
 @onready var player: CharacterBody2D = $Player
+@onready var player_hit_sfx: AudioStreamPlayer = $Player/HitSFX
 @onready var rope: Line2D = $Rope
 @onready var camera: Camera2D = $Camera
 @onready var floor_border: CollisionShape2D = $"World Borders/Bottom"
@@ -36,6 +37,7 @@ func _ready() -> void:
 # Main game loop - handles physics and state changes
 func _physics_process(delta: float) -> void:
   score_label.text = var_to_str(Globals.score)
+
   if Globals.game_state == 0:
     top_control.visible = true
     player.position = Vector2(0, -100)
@@ -147,3 +149,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_button_with_sfx_pressed() -> void:
   Globals.game_state = 3
+
+func player_hit_sound() -> void:
+  if !player_hit_sfx.playing:
+    player_hit_sfx.play()

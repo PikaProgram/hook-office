@@ -121,6 +121,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_a6vmg")
 
 [node name="DumDumSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_g1nf0")
+volume_db = 10.0
 bus = &"SFX"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

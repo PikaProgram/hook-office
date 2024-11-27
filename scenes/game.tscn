@@ -308,7 +308,6 @@ frame_progress = 0.432999
 [node name="FireSFX" type="AudioStreamPlayer2D" parent="Fire/AnimatedSprite2D"]
 position = Vector2(113, 31)
 stream = ExtResource("14_3ubfp")
-volume_db = 10.0
 autoplay = true
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Fire"]
