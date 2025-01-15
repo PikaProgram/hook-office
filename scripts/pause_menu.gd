@@ -1,6 +1,7 @@
 extends Control
 
 @onready var settings_overlay: Control = $"../SettingsOverlay"
+@onready var score_label: Label = $"Panel/Label"
 
 var button_pressed = preload("res://assets/audio/sfx/button_press.wav")
 
@@ -45,3 +46,5 @@ func _on_settings_button_pressed() -> void:
 
 func _on_visibility_changed() -> void:
   Globals.dim_main_theme = visible
+  score_label.text = "Score: " + str(Globals.score)
+

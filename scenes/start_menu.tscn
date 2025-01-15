@@ -84,5 +84,10 @@ text = "Exit"
 stream = ExtResource("5_81nif")
 bus = &"Music"
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="pressed" from="StartAreaButton" to="." method="_on_start_area_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c3o5r8wg6a8y7"]
+[gd_scene load_steps=24 format=3 uid="uid://c3o5r8wg6a8y7"]
 
 [ext_resource type="Texture2D" uid="uid://coigqqrscohfm" path="res://assets/sprites/ui/paused_window.png" id="1_7wxfx"]
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_hi3lf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cqkr505ox6sk" path="res://assets/sprites/ui/buttons/restart.png" id="5_3u08u"]
 [ext_resource type="Texture2D" uid="uid://drqwslpwl3k4d" path="res://assets/sprites/ui/buttons/settings.png" id="6_m6326"]
 [ext_resource type="Texture2D" uid="uid://drf8rj61kohxs" path="res://assets/sprites/ui/buttons/back_menu.png" id="7_ws4jg"]
+[ext_resource type="FontFile" uid="uid://qbq5delt70mc" path="res://assets/fonts/gemstone.ttf" id="8_1hf2g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_38nd8"]
 
@@ -77,8 +78,10 @@ color = Color(0, 0, 0, 0.588235)
 
 [node name="CancelArea" parent="." instance=ExtResource("4_6rp7f")]
 layout_mode = 0
-offset_right = 360.0
-offset_bottom = 640.0
+offset_left = -5.0
+offset_top = 67.0
+offset_right = 355.0
+offset_bottom = 707.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_38nd8")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_38nd8")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_38nd8")
@@ -169,6 +172,18 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_4w1fw")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_4w1fw")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_7fiyb")
 theme_override_styles/normal = SubResource("StyleBoxTexture_7fiyb")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 400.5
+offset_right = 245.0
+offset_bottom = 425.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_1hf2g")
+theme_override_font_sizes/font_size = 25
+text = "Score : "
+horizontal_alignment = 1
 
 [connection signal="pressed" from="CancelArea" to="." method="_on_cancel_area_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
